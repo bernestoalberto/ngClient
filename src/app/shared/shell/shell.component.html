@@ -5,7 +5,7 @@
       [opened]="false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-     
+
       <a mat-list-item routerLink="/" (click)="drawer.close()">Home</a>
       <a mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
       <a mat-list-item routerLink="/kanban" (click)="drawer.close()">Kanban Demo</a>
@@ -14,7 +14,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
-      <button 
+      <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
@@ -24,7 +24,7 @@
 
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="logo" routerLink="/">🔥 Angular Firestarter</span>
+      <span class="logo" routerLink="/"><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon> </span>
 
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
@@ -42,24 +42,11 @@
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </button>
-      
+
       <mat-menu #menu="matMenu">
         <a mat-menu-item href="https://fireship.page.link/slack">
           <i>💬</i>
-          <span>Chat on Slack</span>
-        </a>
-        <a mat-menu-item href="https://github.com/codediodeio/angular-firestarter">
-          <i>💾</i>
-          <span>Code on Github</span>
-        </a>
-        <a mat-menu-item href="https://fireship.io/courses/angular">
-          <i>🔥</i>
-          <span>Full Course on Fireship</span>
-        </a>
-
-        <a mat-menu-item href="https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA">
-          <i>📺</i>
-          <span>Watch on the YouTube</span>
+          <span>Help</span>
         </a>
       </mat-menu>
     </mat-toolbar>

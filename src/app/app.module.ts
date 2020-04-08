@@ -16,7 +16,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-
+// Material Modules
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +32,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatBadgeModule,
     SharedModule,
     UserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -33,7 +45,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [MatBadgeModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

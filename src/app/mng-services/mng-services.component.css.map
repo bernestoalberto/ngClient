@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,MAAM,EAAE,MAAM;CACf;;AACD,AAAA,gBAAgB,CAAC;EACf,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,MAAM;EACrB,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,IAAI;CACb",
+    "sources": [
+        "mng-services.component.scss"
+    ],
+    "names": [],
+    "file": "mng-services.component.css"
+}

@@ -1,0 +1,73 @@
+<form [formGroup]="serviceForm" (ngSubmit)="createService()">
+    <div mat-dialog-content class="example-container">
+
+      <mat-label>CREATE SERVICE/PRODUCT</mat-label>
+
+      <mat-divider>
+        </mat-divider>
+      <mat-form-field  >
+        <input  type="text" matInput placeholder="Service #" readonly value="0001">
+      </mat-form-field>
+      <table  cellspacing="0">
+          <tr>
+          <td>
+            <mat-form-field >
+            <input  type="text" matInput placeholder="Name" required  formControlName="name">
+            <mat-hint>Errors appear instantly!</mat-hint>
+          <!----  <mat-error *ngIf="name.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error> -->
+          </mat-form-field>
+        </td>
+          <td>
+            <mat-form-field >
+                <mat-label>Category</mat-label>
+                <mat-select placeholder="Service #" required   formControlName="category" >
+                    <mat-option  *ngFor ="let category of categories" [value]="category" >
+                    {{category}}
+                    </mat-option>
+                    </mat-select>
+          </mat-form-field>
+        </td>
+        </tr>
+      </table>
+
+      <table  cellspacing="0">
+          <tr>
+            <td>
+          <mat-form-field >
+            <input type="number" matInput placeholder="Price" step="0.5" min="1"
+             required  formControlName="price">
+            <span matPrefix>{{currencies[0]}}&nbsp;</span>
+          <span matSuffix>.00</span>
+          </mat-form-field>
+          </td>
+          <td>
+              <mat-form-field >
+              <input matInput  type="text" placeholder="SKU" formControlName="sku">
+            </mat-form-field></td>
+          </tr>
+        </table>
+        <mat-form-field>
+         <textarea rows="4" cols="50" required matInput placeholder="Description"  formControlName="description"></textarea>
+        </mat-form-field>
+
+    </div>
+
+      <div mat-dialog-actions>
+        <button mat-raised-button  color="warn" (click)="reset()">Reset </button>
+        <button mat-raised-button  color="accent" [mat-dialog-close]="close" cdkFocusInitial>Close</button>
+        <button mat-raised-button  color="primary" type="submit" [disabled]="!serviceForm.valid" >Save</button>
+      </div>
+
+    </form>
+    <mat-spinner *ngIf=status class="spinner"></mat-spinner>
+
+<p>
+  Form Status : {{serviceForm.status}}
+</p>
+
+
+<p>
+  Form Value : {{serviceForm.value | json}}
+</p>

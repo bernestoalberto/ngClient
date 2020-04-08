@@ -6,15 +6,10 @@
 
 </p>
 
-# FireStarter
+# The First Moncadas's Office
 
-Firestarter is an Angular PWA powered by Firebase.
+The First Moncadas's Office is an Angular PWA powered by Firebase.
 
-- [Live Demo](https://firestarter.fireship.io/)
-- [Lessons and Screencasts](https://fireship.io)
-- [Join the Slack Team](https://fireship.page.link/slack)
-
-![](https://firebasestorage.googleapis.com/v0/b/angular-voxer.appspot.com/o/demo-gif.gif?alt=media&token=dadcdb72-eb58-4903-b6b8-c741c27a08c4)
 
 ## Features
 

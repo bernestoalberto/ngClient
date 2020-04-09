@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from './../user/user.model';
+// import { User } from './../user/user.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -7,7 +7,7 @@ import { NewServicesComponent } from './new-services/new-services.component';
 import { EditServicesComponent } from './edit-services/edit-services.component';
 import { DeleteServiceComponent } from './delete-service/delete-service.component';
 // import { Router } from '@angular/router';
-import { AuthService } from '../_services/auth.service';
+// import { AuthService } from '../_services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { Store, select } from '@ngrx/store';
@@ -57,7 +57,7 @@ export class MngServicesComponent implements OnInit {
   public dataSource = [];
   public status = true;
   public hide;
-  public user: User = null;
+  // public user: User = null;
   public check;
   showDialog = false;
   public dialogType;
@@ -112,7 +112,7 @@ export class MngServicesComponent implements OnInit {
     private store: Store<fromService.AppState>,
     private snackBar: SnackBarService,
     private route: ActivatedRoute,
-    public authService: AuthService,
+    // public authService: AuthService,
   ) {
     this.store.select('services');
 

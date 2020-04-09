@@ -20,6 +20,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./customers/customers.module').then(m => m.CustomersModule),
   },
+  {
+    path: 'service',
+    loadChildren: () =>
+      import('./mng-services/mng-services.module').then(m => m.ServicesModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

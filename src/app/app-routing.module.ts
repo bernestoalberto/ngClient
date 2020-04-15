@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { MngServicesComponent } from './mng-services/mng-services.component';
 import { AuthGuard } from './user/auth.guard';
 
 const routes: Routes = [
@@ -23,10 +23,17 @@ const routes: Routes = [
   },
   {
     path: 'services',
-    loadChildren: () =>
-    import('./mng-services/mng-services.module').then(m => m.ServicesModule),
+    component: MngServicesComponent,
+    // loadChildren: () =>
+    // import('./mng-services/mng-services.module').then(m => m.ServicesModule),
     canActivate: [AuthGuard]
   },
+  // {
+  //   path: 'media',
+  //   loadChildren: () =>
+  //   import('./media/media.module').then(m => m.MediaModule),
+  //   canActivate: [AuthGuard]
+  // },
 ];
 
 @NgModule({

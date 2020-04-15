@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {IpayService} from '../../checkout/payme/ipay.service';
+import {IpayService} from '../../ipay/payme/ipay.service';
 import {FormBuilder, Validators } from '@angular/forms';
 import { Subscriber, Observable } from 'rxjs';
 import {Service} from '../service.model';

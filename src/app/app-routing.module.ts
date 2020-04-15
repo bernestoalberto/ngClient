@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
+
 import { AuthGuard } from './user/auth.guard';
 
 const routes: Routes = [
@@ -21,16 +22,16 @@ const routes: Routes = [
       import('./customers/customers.module').then(m => m.CustomersModule),
   },
   {
-    path: 'service',
+    path: 'services',
     loadChildren: () =>
-      import('./mng-services/mng-services.module').then(m => m.ServicesModule),
+    import('./mng-services/mng-services.module').then(m => m.ServicesModule),
     canActivate: [AuthGuard]
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabled'
+  initialNavigation: 'enabled'
 })],
   exports: [RouterModule]
 })

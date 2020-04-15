@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from '@ag-grid-community/angular';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EditServicesComponent, } from '../mng-services/edit-services/edit-services.component';
 import { DeleteServiceComponent } from '../mng-services/delete-service/delete-service.component';
 
 
 @Component({
   selector: 'app-child-cell',
-  template: `<span><a mat-button href="javascript: void(0)" (click)="openDialog(2);dialogType = 'editService'"
+  template: `<span><a mat-button href="javascript: void(0)" (click)="openDialog(2)"
     data-orderid="" title="Edit Service">
     <mat-icon>mode_edit</mat-icon>
   </a></span>
   <span><a mat-button href="javascript: void(0)"
-            (click)="openDialog(3);dialogType = 'deleteService'" data-orderid="" title="Delete Service">
+            (click)="openDialog(3)" data-orderid="" title="Delete Service">
             <mat-icon>delete</mat-icon>
           </a></span>
   `,

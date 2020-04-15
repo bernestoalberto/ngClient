@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { User } from './../user/user.model';
+import { User } from './../user/user.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -57,7 +57,7 @@ export class MngServicesComponent implements OnInit {
   public dataSource = [];
   public status = true;
   public hide;
-  // public user: User = null;
+  public user: User = null;
   public check;
   showDialog = false;
   public dialogType;

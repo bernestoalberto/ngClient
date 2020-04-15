@@ -6,7 +6,7 @@ import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { map, mergeMap, catchError, delay } from 'rxjs/operators';
 
-import { IpayService } from '../../checkout/payme/ipay.service';
+import { IpayService } from '../../ipay/payme/ipay.service';
 import * as serviceActions from '../actions/service.actions';
 import { Service, ServiceResponse } from '../../mng-services/service.model';
 

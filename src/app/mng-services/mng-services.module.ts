@@ -89,6 +89,7 @@ import { DeleteServiceComponent } from './delete-service/delete-service.componen
     }
   ],
     entryComponents: [
+      MngServicesComponent,
       NewServicesComponent,
       EditServicesComponent,
       DeleteServiceComponent

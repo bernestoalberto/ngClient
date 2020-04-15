@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import {IpayModule} from './ipay/ipay.module'
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
@@ -23,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatBadgeModule} from '@angular/material/badge';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,12 +42,13 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatBadgeModule,
     SharedModule,
     UserModule,
+    IpayModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [MatBadgeModule],
+  providers: [MatBadgeModule, MatCardModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

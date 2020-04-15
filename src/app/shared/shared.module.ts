@@ -15,8 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
+
+import {ChildMessageRendererComponent} from './action.renderer.component';
 const components = [
-  ShellComponent, DeleteButtonComponent
+  ShellComponent, DeleteButtonComponent,ChildMessageRendererComponent
 ];
 
 const modules = [
@@ -29,7 +31,6 @@ const modules = [
   MatSidenavModule,
   MatListModule,
   MatMenuModule,
-  MatIconModule,
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
@@ -47,6 +48,9 @@ const modules = [
   exports: [
     ...components,
     ...modules
+  ],
+  entryComponents: [
+    ChildMessageRendererComponent,
   ],
 })
 export class SharedModule {}

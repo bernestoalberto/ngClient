@@ -1,0 +1,5 @@
+<p>Are u sure you want to log out</p>
+<div mat-dialog-actions>
+  <button mat-raised-button  color="accent" [mat-dialog-close]="close" cdkFocusInitial>No</button>
+  <button mat-raised-button  color="primary" type="submit" (click)="logout()" >Yes</button>
+</div>

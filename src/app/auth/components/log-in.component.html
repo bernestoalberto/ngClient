@@ -1,0 +1,81 @@
+<div class="container">
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!---- <div mat-card-avatar >
+        <img mat-card-image src="../../assets/images/servicesnproducts/{{service.link}}" alt="{{service.description}}">
+      </div>-->
+      <mat-card-title style="position:relative">Login </mat-card-title>
+    </mat-card-header>
+    <!----  <img mat-card-image src="../../assets/images/servicesnproducts/{{service.link}}" alt="{{service.description}}">-->
+    <mat-card-content>
+      <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{errorMessage }}
+        </div>
+      </div>
+      <form [formGroup]="LoginForm" (submit)="loginUser()">
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput autocomplete placeholder="Username" formControlName="username"  autocomplete>
+            <mat-icon matSuffix>person_outline</mat-icon>
+            <mat-error *ngIf="LoginForm.hasError('required', ['username'])">Username is required</mat-error>
+            <mat-error *ngIf="LoginForm.hasError('invalid', ['username']) && (LoginForm.hasError('dirty', ['username']))" class="has-text-danger">Your email does not look right</mat-error>
+            <mat-hint align="end">Username is your email address</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input type="password" matInput autocomplete placeholder="Pass****" formControlName="password">
+            <mat-icon matSuffix>fingerprint</mat-icon>
+            <mat-error *ngIf="LoginForm.hasError('required', ['password'])">Password is required</mat-error>
+            <mat-error *ngIf="LoginForm.hasError('invalid', ['password'])  && (LoginForm.hasError('dirty', ['password']))" class="has-text-danger">
+              Your password does not look right</mat-error>
+             <mat-hint align="end">Must have one letter, and one number</mat-hint>
+          </mat-form-field>
+        </div>
+        <p>
+          <span>Don't have an account?&nbsp;</span>
+          <a routerLink="/signup" routerLinkActive="router-link-active"  >Sign Up!!!</a>
+        </p>
+        <mat-card-actions>
+          <div mat-dialog-actions>
+            <button mat-raised-button color="warn" (click)="reset()">Cancel </button>
+              <button mat-raised-button color="primary"  type="submit" [disabled]="!LoginForm.valid">Log In</button>
+          </div>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card">
+    <mat-card-content>
+  <!----  <div id="firebaseui-auth-container" class="auth-container">
+    </div>-->
+    <button mat-raised-button color="warn"
+    [class.is-loading]="isLoading$ | async"
+    (click)="googleSignin()">
+      Sign in with
+      <i class="fa fa-google"></i>
+  </button>
+  </mat-card-content>
+  </mat-card>
+  <mat-card-content>
+    <!----  <div id="firebaseui-auth-container" class="auth-container">
+  </div>-->
+    <button
+     mat-raised-button color="warn"
+    (click)="signInEmailFire()">
+      SignIn
+      <img src="https://img.icons8.com/color/48/000000/firebase.png">
+    </button>
+  </mat-card-content>
+</mat-card>
+
+  <section class="example-section">
+    <mat-progress-bar *ngIf="showSpinner$ | async" class="example-margin" [color]="color" [mode]="mode" [value]="value"
+      [bufferValue]="bufferValue">
+    </mat-progress-bar>
+  </section>
+</div>

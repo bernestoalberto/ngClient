@@ -1,0 +1,88 @@
+.example-card {
+  max-width: 400px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 80%;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+   padding-left: 80px;
+}
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+:host {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.loginError {
+  padding: 16px;
+  width: 100%;
+  color: white;
+  background-color: red;
+}
+.loginButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+mat-form-field {
+  display: block;
+}
+
+.mat-accent {
+  background-color: #42A948 !important;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-bottom: 5px solid #42A948;
+}
+
+ul {
+  text-align: left;
+}
+
+.ng-valid .mat-form-field-underline {
+  background-color: green;
+}

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-// import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { from } from 'rxjs';
+import {PipesModule} from '../shared/pipes/index';
 import { serviceReducer } from '../mng-services/reducers/service.reducer';
 import { ServiceEffect } from '../mng-services/effects/service.effect';
-
+// Module Components
 import { MngServicesComponent } from './mng-services.component';
 import { NewServicesComponent } from './new-services/new-services.component';
 import { EditServicesComponent } from './edit-services/edit-services.component';
@@ -43,7 +43,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 // import {PackageSearchModule} from '../package-search/package-search.module';
 
-// const serviceRoutes: Routes = [{ path: 'services', component: MngServicesComponent }];
+const serviceRoutes: Routes = [{ path: 'services', component: MngServicesComponent }];
 import { ServicesRoutingModule } from './service-routing.module';
 import { SERVICES_CONFIG_TOKEN, SERVICES_LOCAL_STORAGE_KEY, SERVICES_STORAGE_KEYS} from './services.tokens';
 import {LocalStorageService} from '../shared/localStorage.service';
@@ -66,9 +66,10 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    PipesModule,
     // PackageSearchModule,
     MatBadgeModule,
-    // RouterModule.forChild(serviceRoutes),
+    RouterModule.forChild(serviceRoutes),
     StoreModule.forFeature('services', serviceReducer, SERVICES_CONFIG_TOKEN),
     EffectsModule.forFeature([ServiceEffect]),
     AgGridModule.withComponents([MngServicesComponent]),

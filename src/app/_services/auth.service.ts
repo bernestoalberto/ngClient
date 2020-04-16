@@ -3,7 +3,7 @@ import { Observable, of, pipe, range, timer, BehaviorSubject, zip } from 'rxjs';
 import { map, catchError, debounceTime, tap, delay, switchMap, retryWhen, mergeMap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { UserModel, FireUser } from './../auth/models/user.model';
+import { UserModel, FireUser } from './../user/user.model';
 import { environment } from '../../environments/environment';
 import * as firebase from 'firebase';
 
@@ -84,8 +84,8 @@ export class AuthService {
       catchError(err => of([])));
   }
   loginUserFire(user) {
-    return this.http.post<any>(`${environment.firebaseConfig.BASE_URL}/verifyPassword?key=
-                                  ${environment.firebaseConfig.apiKey}`, user).pipe(
+    return this.http.post<any>(`${environment.firebase.BASE_URL}/verifyPassword?key=
+                                  ${environment.firebase.apiKey}`, user).pipe(
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
@@ -95,8 +95,8 @@ export class AuthService {
 
    // Get user data
    getUserData(oobCode) {
-    return this.http.post<any>(`${environment.firebaseConfig.BASE_URL}lookup?key=
-                               ${environment.firebaseConfig.apiKey}`, oobCode).pipe(
+    return this.http.post<any>(`${environment.firebase.BASE_URL}lookup?key=
+                               ${environment.firebase.apiKey}`, oobCode).pipe(
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
@@ -106,8 +106,8 @@ export class AuthService {
    // Confirm email vertification
 
    emailVerification(oobCode) {
-    return this.http.post<any>(`${environment.firebaseConfig.BASE_URL}update?key=
-                               ${environment.firebaseConfig.apiKey}`, oobCode).pipe(
+    return this.http.post<any>(`${environment.firebase.BASE_URL}update?key=
+                               ${environment.firebase.apiKey}`, oobCode).pipe(
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
@@ -117,8 +117,8 @@ export class AuthService {
   // Verify Password
 
   verifyPassword(oobCode) {
-    return this.http.post<any>(`${environment.firebaseConfig.BASE_URL}resetPassword?key=
-                               ${environment.firebaseConfig.apiKey}`, oobCode).pipe(
+    return this.http.post<any>(`${environment.firebase.BASE_URL}resetPassword?key=
+                               ${environment.firebase.apiKey}`, oobCode).pipe(
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
@@ -133,8 +133,8 @@ export class AuthService {
 
 
   registerUserFire(user) {
-    return this.http.post<any>(`${environment.firebaseConfig.BASE_URL}signUp?key=
-                                  ${environment.firebaseConfig.apiKey}`, user).pipe(
+    return this.http.post<any>(`${environment.firebase.BASE_URL}signUp?key=
+                                  ${environment.firebase.apiKey}`, user).pipe(
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
@@ -150,7 +150,7 @@ export class AuthService {
       catchError(err => of([])));
   }
   getTokenOrRefreshed(): Observable<any> {
-    return this.http.get<any>(`${environment.firebaseConfig.BASE_URL}
+    return this.http.get<any>(`${environment.firebase.BASE_URL}
         /token`).pipe(
       map((response: HttpResponse<any>) => response),
       tap(response => {
@@ -216,7 +216,7 @@ export class AuthService {
 
       // It's OK to expose these credentials, they are client safe.
       gapi.client.init({
-        apiKey: environment.firebaseConfig.apiKey,
+        apiKey: environment.firebase.apiKey,
         clientId: environment.gapi.clientId,
         discoveryDocs: environment.gapi.discoveryDocs,
         scope: environment.gapi.scope

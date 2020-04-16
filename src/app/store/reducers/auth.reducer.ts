@@ -2,7 +2,7 @@ import { AuthActions, AuthActionTypes } from '../actions/auth.actions';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
 import * as fromRoot from '../state/app.state';
-import { UserModel, UserNotification, UserFire } from '../../auth/models/user.model';
+import { UserModel, UserNotification, UserFire } from '../../user/user.model';
 
 export interface AuthState extends EntityState<any> {
   // is a user authenticated?

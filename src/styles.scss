@@ -72,7 +72,8 @@ $firestarter-theme: mat-dark-theme($firestarter-primary, $firestarter-accent, $f
 
 /* You can add global styles to this file, and also import other style files */
 
-
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: sofia-pro, sans-serif; }

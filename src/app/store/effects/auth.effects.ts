@@ -22,13 +22,13 @@ import {
 } from '../actions/auth.actions';
 import { AuthService } from '../../_services/auth.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { LogoutDialogComponent } from '../../auth/components/logout-dialog.component';
-import { Credentials, UserModel } from '../../auth/models/user.model';
+import { Credentials, UserModel } from '../../user/user.model';
 import { SnackBarService } from './../../snackBar/snackBar';
 import { Store } from '@ngrx/store';
 import * as fromAuth from '../reducers/auth.reducer';
-import { SignUpEmailFire } from './../actions/auth.actions';
+// import { SignUpEmailFire } from './../actions/auth.actions';
 
 
 

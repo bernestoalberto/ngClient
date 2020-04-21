@@ -12,7 +12,39 @@ export class KeysPipe implements PipeTransform {
     return keys;
   }
 }
+@Pipe({ name: 'bcAddCommas' })
+export class AddCommasPipe implements PipeTransform {
+  transform(authors: null | string[]) {
+    if (!authors) {
+      return 'Author Unknown';
+    }
 
+    switch (authors.length) {
+      case 0:
+        return 'Author Unknown';
+      case 1:
+        return authors[0];
+      case 2:
+        return authors.join(' and ');
+      default:
+        const last = authors[authors.length - 1];
+        const remaining = authors.slice(0, -1);
+        return `${remaining.join(', ')}, and ${last}`;
+    }
+  }
+}
+@Pipe({ name: 'bcEllipsis' })
+export class EllipsisPipe implements PipeTransform {
+  transform(str: string, strLength: number = 250) {
+    const withoutHtml = str.replace(/(<([^>]+)>)/gi, '');
+
+    if (str.length >= strLength) {
+      return `${withoutHtml.slice(0, strLength)}...`;
+    }
+
+    return withoutHtml;
+  }
+}
 @Pipe({ name: 'replaceName' })
 export class ReplaceName implements PipeTransform {
   transform(value: string): string {

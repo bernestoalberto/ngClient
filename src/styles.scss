@@ -75,6 +75,10 @@ $firestarter-theme: mat-dark-theme($firestarter-primary, $firestarter-accent, $f
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
+.ag-theme-alpine {
+  @include ag-theme-alpine();
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: sofia-pro, sans-serif; }
 a {

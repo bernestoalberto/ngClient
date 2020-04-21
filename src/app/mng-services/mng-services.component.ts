@@ -9,7 +9,8 @@ import { DeleteServiceComponent } from './delete-service/delete-service.componen
 // import { Router } from '@angular/router';
 // import { AuthService } from '../_services/auth.service';
 import { ActivatedRoute } from '@angular/router';
-
+import {ProgressBarMode} from '@angular/material/progress-bar';
+import {ThemePalette} from '@angular/material/core';
 import { Store, select } from '@ngrx/store';
 
 import * as serviceActions from '../mng-services/actions/service.actions';
@@ -82,8 +83,8 @@ export class MngServicesComponent implements OnInit {
   count$: Observable<number>;
   public showSpinner$: Observable<boolean>;
 
-  color = 'warn';
-  mode = 'buffer';
+  color: ThemePalette = 'warn';
+  mode: ProgressBarMode = 'buffer';
   value = 50;
   bufferValue = 75;
   private subs = new SubSink();

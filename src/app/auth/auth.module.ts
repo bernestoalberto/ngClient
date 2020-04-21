@@ -69,7 +69,7 @@ export function getAuthConfig(saveKeys: string[], localStorageKey: string, stora
     UserHomeComponent
   ],
   entryComponents: [LogoutDialogComponent],
-  providers: [AuthService, SignUpComponent,
+  providers: [AuthService, SignUpComponent, LoginComponent,
     { provide: AUTH_LOCAL_STORAGE_KEY, useValue: '__auth_storage__' },
     { provide: AUTH_STORAGE_KEYS, useValue: ['user', 'viewMode'] },
     {

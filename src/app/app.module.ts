@@ -14,8 +14,7 @@ import { environment } from '../environments/environment';
 // Interceptors
 import { httpInterceptorProviders } from './http-interceptors/index';
 // Pipes
-import { KeysPipe, RoundFullNumber, ReplaceName, OrderBy, Search, UCFirst, UniquePipe } from './app.pipes';
-
+import { KeysPipe,AddCommasPipe, EllipsisPipe, RoundFullNumber, ReplaceName, OrderBy, Search, UCFirst, UniquePipe } from './app.pipes';
 // App Modules
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +22,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import {IpayModule} from './ipay/ipay.module'
-import {PipesModule} from './shared/pipes/index';
 import { AuthModule } from './auth/auth.module';
 // AgGrid
 import { AgGridModule } from 'ag-grid-angular';
@@ -65,10 +63,9 @@ import {MessagingService} from './shared/messaging.service';
     MaterialModule,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+  BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    PipesModule,
     SharedModule,
     AuthModule,
     HttpClientXsrfModule,
@@ -76,6 +73,8 @@ import {MessagingService} from './shared/messaging.service';
         KeysPipe,
         ReplaceName,
         RoundFullNumber,
+        AddCommasPipe,
+        EllipsisPipe,
         OrderBy,
         Search,
         UCFirst,
@@ -118,7 +117,6 @@ import {MessagingService} from './shared/messaging.service';
   ],
   providers: [
     SharedModule,
-    PipesModule,
     AuthModule,
     AuthService,
     PagerService,

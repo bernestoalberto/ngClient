@@ -6,7 +6,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import {PipesModule} from '../shared/pipes/index';
 import { serviceReducer } from '../mng-services/reducers/service.reducer';
 import { ServiceEffect } from '../mng-services/effects/service.effect';
 // Module Components
@@ -48,6 +47,7 @@ import { ServicesRoutingModule } from './service-routing.module';
 import { SERVICES_CONFIG_TOKEN, SERVICES_LOCAL_STORAGE_KEY, SERVICES_STORAGE_KEYS} from './services.tokens';
 import {LocalStorageService} from '../shared/localStorage.service';
 import {storageMetaReducer} from '../shared/storage.metareducer';
+// AG-grid
 import { AgGridModule } from 'ag-grid-angular';
 
 export function getServicesConfig(saveKeys: string[], localStorageKey: string, storageService: LocalStorageService) {
@@ -66,7 +66,6 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    PipesModule,
     // PackageSearchModule,
     MatBadgeModule,
     RouterModule.forChild(serviceRoutes),
@@ -90,6 +89,13 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
     MatProgressBarModule,
     MatRadioModule
   ],
+  declarations: [
+    MngServicesComponent,
+    NewServicesComponent,
+    EditServicesComponent,
+    DeleteServiceComponent,
+    MaterialElevationDirective
+  ],
   providers: [
     MaterialElevationDirective,
     MatSelectModule,
@@ -106,12 +112,6 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
       useFactory: getServicesConfig
     }
   ],
-  declarations: [
-    MngServicesComponent,
-    NewServicesComponent,
-    EditServicesComponent,
-    DeleteServiceComponent,
-    MaterialElevationDirective
-  ]
+  bootstrap: [MngServicesComponent],
 })
 export class ServicesModule {}

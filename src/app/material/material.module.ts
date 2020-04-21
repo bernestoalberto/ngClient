@@ -124,7 +124,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressBarModule
   ]
 
 })

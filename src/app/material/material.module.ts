@@ -122,6 +122,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   providers: [
     MatCardModule,
+    MatLabel,
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,

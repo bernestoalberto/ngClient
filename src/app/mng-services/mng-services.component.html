@@ -44,8 +44,14 @@
 </mat-card>
 
   <section class="example-section">
-    <mat-progress-bar *ngIf="showSpinner$ | async" class="example-margin" [color]="color" [mode]="mode" [value]="value"
-      [bufferValue]="bufferValue">
+    <mat-progress-bar
+     *ngIf="showSpinner$ | async"
+      class="example-margin"
+      [color]="color"
+      [mode]="mode"
+      [value]="value"
+      [bufferValue]="bufferValue"
+      >
     </mat-progress-bar>
   </section>
 </div>

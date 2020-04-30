@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -14,6 +15,7 @@ import { NewServicesComponent } from './new-services/new-services.component';
 import { EditServicesComponent } from './edit-services/edit-services.component';
 import {DeleteServiceComponent} from './delete-service/delete-service.component';
 
+
 // Material Modules
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -21,7 +23,7 @@ import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatSelectModule} from '@angular/material/select';
+import {MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -38,8 +40,8 @@ import {
 import {
   MatRadioModule,
 } from '@angular/material/radio';
-import {MatButtonModule} from '@angular/material/button';
-
+import { MatButtonModule } from '@angular/material/button';
+// import { MatOpt }
 // import {PackageSearchModule} from '../package-search/package-search.module';
 
 const serviceRoutes: Routes = [{ path: 'services', component: MngServicesComponent }];
@@ -55,15 +57,10 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
 }
 
 @NgModule({
-  entryComponents: [
-    MngServicesComponent,
-    NewServicesComponent,
-    EditServicesComponent,
-    DeleteServiceComponent
-  ],
   imports: [
-  CommonModule,
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     // PackageSearchModule,
@@ -75,7 +72,6 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
     MatIconModule,
     MatButtonToggleModule,
     MatButtonModule,
-    MatLabel,
     MatFormFieldModule,
     MatTooltipModule,
     MatSelectModule,
@@ -103,6 +99,7 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
     MatProgressBarModule,
     MatDividerModule,
     MatCardModule,
+    AgGridModule,
     MatLabel,
     { provide: SERVICES_LOCAL_STORAGE_KEY, useValue: '__services_storage__' },
     { provide: SERVICES_STORAGE_KEYS, useValue: ['services', 'viewMode'] },

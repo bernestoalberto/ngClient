@@ -14,7 +14,16 @@ import { environment } from '../environments/environment';
 // Interceptors
 import { httpInterceptorProviders } from './http-interceptors/index';
 // Pipes
-import { KeysPipe,AddCommasPipe, EllipsisPipe, RoundFullNumber, ReplaceName, OrderBy, Search, UCFirst, UniquePipe } from './app.pipes';
+import { KeysPipe }  from './pipes/keys.pipe';
+import { AddCommasPipe } from './pipes/add-commas.pipe';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { RoundFullNumber } from './pipes/round.full-number.pipe';
+import { ReplaceName } from './pipes/replace.name.pipe';
+import { OrderBy } from './pipes/orderby.pipe';
+import { Search } from './pipes/search.pipe';
+import { UCFirst } from './pipes/ucfirst.pipe';
+import { UniquePipe } from './pipes/unique.pipe';
+
 // App Modules
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -58,18 +67,7 @@ import {MessagingService} from './shared/messaging.service';
   declarations: [
     AppComponent,
     HomePageComponent,
-  ],
-  exports: [
-    MaterialModule,
-  ],
-  imports: [
-  BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    AuthModule,
-    HttpClientXsrfModule,
-        /* Pipes */
+      /* Pipes */
         KeysPipe,
         ReplaceName,
         RoundFullNumber,
@@ -79,13 +77,23 @@ import {MessagingService} from './shared/messaging.service';
         Search,
         UCFirst,
         UniquePipe,
+  ],
+  exports: [
+    MaterialModule,
+  ],
+  imports: [
+  CommonModule,
+  BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    AuthModule,
+    HttpClientXsrfModule,
     HttpClientModule,
-    CommonModule,
     AgGridModule.withComponents([]),
     MaterialModule,
     UserModule,
     IpayModule,
-
     StoreModule.forRoot(reducers),
     HttpClientXsrfModule.withOptions({
       cookieName: 'My-Xsrf-Cookie',

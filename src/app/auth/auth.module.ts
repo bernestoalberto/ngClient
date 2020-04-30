@@ -25,6 +25,7 @@ import { LogoutDialogComponent } from './components/logout-dialog.component';
 import { UserHomeComponent } from '../auth/components/user-home.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule , MatLabel } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { StoreModule } from '@ngrx/store';
@@ -48,6 +49,7 @@ export function getAuthConfig(saveKeys: string[], localStorageKey: string, stora
     BrowserAnimationsModule,
     BrowserModule,
     AuthRoutingModule,
+    MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
     MatIconModule,
@@ -69,7 +71,7 @@ export function getAuthConfig(saveKeys: string[], localStorageKey: string, stora
     UserHomeComponent
   ],
   entryComponents: [LogoutDialogComponent],
-  providers: [AuthService, SignUpComponent, LoginComponent,
+  providers: [AuthService, SignUpComponent, LoginComponent, MatLabel,
     { provide: AUTH_LOCAL_STORAGE_KEY, useValue: '__auth_storage__' },
     { provide: AUTH_STORAGE_KEYS, useValue: ['user', 'viewMode'] },
     {

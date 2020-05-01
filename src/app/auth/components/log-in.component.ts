@@ -18,11 +18,11 @@ import {GoogleLogin, GetUser} from '../../auth/actions/user.actions';
 import { SubSink } from 'subsink';
 // const perf = firebase.performance();
 // import { MessagingService } from '../../shared/messaging.service';
-Component({
+@Component({
   selector: 'app-login',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
-});
+})
 export class LoginComponent implements OnInit, OnDestroy {
   public user: UserModel;
   userFire$: Observable<any>;

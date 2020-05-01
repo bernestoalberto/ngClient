@@ -30,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
-import {IpayModule} from './ipay/ipay.module'
+import {IpayModule} from './ipay/ipay.module';
+import {ServicesModule} from './mng-services/mng-services.module';
 import { AuthModule } from './auth/auth.module';
 // AgGrid
 import { AgGridModule } from 'ag-grid-angular';
@@ -87,6 +88,7 @@ import {MessagingService} from './shared/messaging.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    ServicesModule,
     AuthModule,
     HttpClientXsrfModule,
     HttpClientModule,

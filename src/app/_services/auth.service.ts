@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { GlobalConstants } from './../shared/global-constants';
 
 const hoursFromNow = (n) => new Date(Date.now() + n * 1000 * 60 * 60).toISOString();
 
@@ -31,10 +32,11 @@ const httpOptions = {
   redirect: 'follow', // manual, *follow, error
   referrer: 'no-referrer', // no-referrer, *client
 };
-declare let gapi: any;
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   public token: string;
+  gapi = GlobalConstants.gapi;
   public info: string;
   private dataStore = new BehaviorSubject<any>(INIT_DATA);
   data$: Observable<any> = this.dataStore.asObservable();
@@ -211,20 +213,22 @@ export class AuthService {
   }
   // Initialize the Google API client with desired scopes
   initClient() {
-    gapi.load('client', () => {
+    if(this.gapi){
+     this.gapi.load('client', () => {
       console.log('loaded client');
 
       // It's OK to expose these credentials, they are client safe.
-      gapi.client.init({
+      this.gapi.client.init({
         apiKey: environment.firebase.apiKey,
         clientId: environment.gapi.clientId,
         discoveryDocs: environment.gapi.discoveryDocs,
         scope: environment.gapi.scope
       });
 
-      gapi.client.load('calendar', 'v3', () => console.log('loaded calendar'));
+      this.gapi.client.load('calendar', 'v3', () => console.log('loaded calendar'));
 
     });
+  }
   }
   /* googleSignin(): Promise<any> {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -274,7 +278,7 @@ export class AuthService {
     await  firebase.auth.Auth.signInWithCredential(credential);
   }*/
   async getCalendar() {
-    const events = await gapi.client.calendar.events.list({
+    const events = await this.gapi.client.calendar.events.list({
       calendarId: 'primary',
       timeMin: new Date().toISOString(),
       showDeleted: false,
@@ -286,7 +290,7 @@ export class AuthService {
     this.calendarItems = events.result.items;
   }
   async insertEvent() {
-    const insert = await gapi.client.calendar.events.insert({
+    const insert = await this.gapi.client.calendar.events.insert({
       calendarId: 'primary',
       start: {
         dateTime: hoursFromNow(2),

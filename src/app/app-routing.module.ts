@@ -23,9 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'services',
-    // component: MngServicesComponent,
-     loadChildren: () =>
-     import('./mng-services/mng-services.module').then(m => m.ServicesModule),
+    component: MngServicesComponent,
+    //  loadChildren: () =>
+    //  import('./mng-services/mng-services.module').then(m => m.ServicesModule),
     canActivate: [AuthGuard]
   },
   // {

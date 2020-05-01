@@ -2,16 +2,16 @@
 
 
 <mat-card>
-        <p>This content is server rendered with Angular Universal, NestJS, and Google Cloud Run.</p>  
+        <p>This content is server rendered with Angular Universal, NestJS, and Google Cloud Run.</p>
 
-        Paste URL: <pre>https://firestarter.fireship.io/customers/{{customerId}}</pre>
+        Paste URL: <pre>https://ng-client.fireship.io/customers/{{customerId}}</pre>
 
         <a href="https://cards-dev.twitter.com/validator" target="blank" mat-stroked-button color="accent">Twitter Card Validator</a>
 
         <button mat-raised-button routerLink="/customers">BACK</button>
 </mat-card>
 
-    
+
 
 <mat-card *ngIf="customer | async as cust">
   <mat-card-header>

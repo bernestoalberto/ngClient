@@ -48,8 +48,8 @@
         <a mat-button routerLink="/report" > <mat-icon>bar_chart</mat-icon>Report</a>
         <a mat-button routerLink="/kanban">🍱 Kanban Demo</a>
         <a mat-button routerLink="/customers">⚡ SSR Demo</a>
-        <a mat-button routerLink="/login" *ngIf="(afAuth.authState | async)">🔑 Login</a>
-        <a mat-button routerLink="/login" *ngIf="afAuth.authState | async as user" >
+        <a mat-button routerLink="/login" *ngIf="(afAuth$.authState | async) === null">🔑 Login</a>
+        <a mat-button routerLink="/profile" *ngIf="afAuth$.authState | async as user" >
           <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'">
           Profile
         </a>

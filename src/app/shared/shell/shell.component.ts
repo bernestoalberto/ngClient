@@ -14,6 +14,7 @@ export class ShellComponent implements OnInit{
   servicesCant$: Observable<number> = of(0);
   mediaCant$: Observable<number> = of(0);
   events$: Observable<number> = of(0);
+  aState: any = false;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.Handset])
     .pipe(
@@ -21,7 +22,8 @@ export class ShellComponent implements OnInit{
       shareReplay()
     );
 
-  constructor(private store: Store<fromService.AppState>, private breakpointObserver: BreakpointObserver, public afAuth: AngularFireAuth) {}
+  constructor(private store: Store<fromService.AppState>, private breakpointObserver: BreakpointObserver,
+              public afAuth$: AngularFireAuth) {}
   ngOnInit() {
     this.servicesCant$ = this.loadCantServices();
   }

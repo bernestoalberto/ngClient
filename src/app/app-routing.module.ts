@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MngServicesComponent } from './mng-services/mng-services.component';
 import { AuthGuard } from './user/auth.guard';
-
+import {LoginPageComponent} from './user/login-page/login-page.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   {
     path: 'login',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+    component: LoginPageComponent
+    // loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: 'kanban',

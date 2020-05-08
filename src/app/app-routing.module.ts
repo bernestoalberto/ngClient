@@ -8,22 +8,34 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   {
     path: 'login',
+    data: {
+      breadcrumb: 'Login'
+    },
     component: LoginPageComponent
     // loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: 'kanban',
+    data: {
+      breadcrumb: 'Kanban'
+    },
     loadChildren: () =>
       import('./kanban/kanban.module').then(m => m.KanbanModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'customers',
+    data: {
+      breadcrumb: 'Customers'
+    },
     loadChildren: () =>
       import('./customers/customers.module').then(m => m.CustomersModule),
   },
   {
     path: 'services',
+    data: {
+      breadcrumb: 'Services'
+    },
     component: MngServicesComponent,
     //  loadChildren: () =>
     //  import('./mng-services/mng-services.module').then(m => m.ServicesModule),
@@ -31,6 +43,9 @@ const routes: Routes = [
   },
   // {
   //   path: 'media',
+  // data: {
+    // breadcrumb: 'Media'
+  // },
   //   loadChildren: () =>
   //   import('./media/media.module').then(m => m.MediaModule),
   //   canActivate: [AuthGuard]

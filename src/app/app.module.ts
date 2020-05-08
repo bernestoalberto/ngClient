@@ -26,6 +26,8 @@ import { UniquePipe } from './pipes/unique.pipe';
 
 // App Modules
 import { AppComponent } from './app.component';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+import  {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SharedModule } from './shared/shared.module';
@@ -68,6 +70,7 @@ import {MessagingService} from './shared/messaging.service';
   declarations: [
     AppComponent,
     HomePageComponent,
+    BreadcrumbComponent,
       /* Pipes */
         KeysPipe,
         ReplaceName,
@@ -86,6 +89,7 @@ import {MessagingService} from './shared/messaging.service';
   CommonModule,
   BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    BreadcrumbModule,
     BrowserAnimationsModule,
     SharedModule,
     ServicesModule,
@@ -131,6 +135,7 @@ import {MessagingService} from './shared/messaging.service';
     AuthService,
     PagerService,
     SnackBarService,
+    BreadcrumbComponent,
     httpInterceptorProviders,
     MessageService,
     MessagingService,

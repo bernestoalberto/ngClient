@@ -30,14 +30,64 @@
 
         <a mat-button routerLink="/dashboard" >  <mat-icon>dashboard</mat-icon>Dashboard</a>
         <a mat-button
-         routerLink="/services"
-          routerLinkActive="active"
           [matBadge]="servicesCant$ | async"
-          matBadgeColor="warn" >
+          matBadgeColor="warn"
+          [matMenuTriggerFor]="mservices" >
           <mat-icon
           >
            business</mat-icon>
-           Service</a>
+           Service
+           <mat-menu #mservices="matMenu">
+            <button mat-menu-item
+             [matMenuTriggerFor]="mngServices">Manage</button>
+          </mat-menu>
+
+          <mat-menu #mngServices="matMenu">
+            <button mat-menu-item
+            (click)="travel()"
+            >Services
+            <span class="material-icons">
+              supervised_user_circle
+              </span>
+            </button>
+            <button mat-menu-item>Inmigration</button>
+            <button mat-menu-item>Credit Score</button>
+            <button mat-menu-item>Notary Signing Agent</button>
+            <button mat-menu-item>Tax Return</button>
+          </mat-menu>
+           <!--
+          <mat-menu #otherServices="matMenu">
+            <button mat-menu-item>Insects</button>
+            <button mat-menu-item>Molluscs</button>
+            <button mat-menu-item>Crustaceans</button>
+            <button mat-menu-item>Corals</button>
+            <button mat-menu-item>Arachnids</button>
+            <button mat-menu-item>Velvet worms</button>
+            <button mat-menu-item>Horseshoe crabs</button>
+          </mat-menu>
+          <mat-menu #fish="matMenu">
+            <button mat-menu-item>Baikal oilfish</button>
+            <button mat-menu-item>Bala shark</button>
+            <button mat-menu-item>Ballan wrasse</button>
+            <button mat-menu-item>Bamboo shark</button>
+            <button mat-menu-item>Banded killifish</button>
+          </mat-menu>
+
+          <mat-menu #amphibians="matMenu">
+            <button mat-menu-item>Sonoran desert toad</button>
+            <button mat-menu-item>Western toad</button>
+            <button mat-menu-item>Arroyo toad</button>
+            <button mat-menu-item>Yosemite toad</button>
+          </mat-menu>
+
+          <mat-menu #reptiles="matMenu">
+            <button mat-menu-item>Banded Day Gecko</button>
+            <button mat-menu-item>Banded Gila Monster</button>
+            <button mat-menu-item>Black Tree Monitor</button>
+            <button mat-menu-item>Blue Spiny Lizard</button>
+            <button mat-menu-item disabled>Velociraptor</button>
+          </mat-menu> -->
+        </a>
         <a mat-button routerLink="/media"
         [matBadge]="mediaCant$ | async"
          matBadgeColor="warn" > <mat-icon>play_arrow</mat-icon>Media</a>

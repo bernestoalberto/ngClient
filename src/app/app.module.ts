@@ -35,6 +35,7 @@ import { UserModule } from './user/user.module';
 import {IpayModule} from './ipay/ipay.module';
 import {ServicesModule} from './mng-services/mng-services.module';
 import { AuthModule } from './auth/auth.module';
+import {ReportsModule} from './reports/reports.module';
 // AgGrid
 import { AgGridModule } from 'ag-grid-angular';
 // Firebase imports
@@ -94,6 +95,7 @@ import {MessagingService} from './shared/messaging.service';
     SharedModule,
     ServicesModule,
     AuthModule,
+    ReportsModule,
     HttpClientXsrfModule,
     HttpClientModule,
     AgGridModule.withComponents([]),

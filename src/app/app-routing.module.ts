@@ -4,6 +4,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MngServicesComponent } from './mng-services/mng-services.component';
 import { AuthGuard } from './user/auth.guard';
 import {LoginPageComponent} from './user/login-page/login-page.component';
+import {ReportsComponent} from './reports/reports.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   {
@@ -41,6 +42,16 @@ const routes: Routes = [
     //  import('./mng-services/mng-services.module').then(m => m.ServicesModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'reports',
+    data: {
+      breadcrumb: 'Reports'
+    },
+    component: ReportsComponent,
+    //  loadChildren: () =>
+    //  import('./mng-services/mng-services.module').then(m => m.ServicesModule),
+    canActivate: [AuthGuard]
+  },
   // {
   //   path: 'media',
   // data: {
@@ -54,7 +65,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-  initialNavigation: 'enabled'
+initialNavigation: 'enabled'
 })],
   exports: [RouterModule]
 })

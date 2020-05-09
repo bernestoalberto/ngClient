@@ -1,0 +1,8 @@
+{
+   "/api/v1/*": {
+      "target": "https://backend.eabonet.com",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

@@ -1,0 +1,64 @@
+<ng-container class="content">
+<!-- Services Table -->
+<div class="col-lg-12 col-md-12">
+  <h1><b style="margin-left: 40px;"  >Manage Services</b></h1>
+  <div class="col-sm-8" style="margin-left: 40px;">
+    <button mat-mini-fab  color="accent" type="button" *ngIf="!user" matTooltip="Create a Service"
+      [matTooltipPosition]="positiono" (click)="openDialog()">
+      <span class="material-icons">
+        plus_one
+        </span>
+    </button>
+  </div>
+  <tr>
+    <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">{{error}}</td>
+  </tr>
+  <br>
+  <div class="example-container mat-elevation-z8">
+    <div class="example-header">
+       <!-- <app-package-search></app-package-search> -->
+    </div>
+  </div>
+  <br>
+
+  <div></div>
+
+  <mat-card
+   style="width: 1220px; margin-left: 40px;"
+   appMaterialElevation
+   [defaultElevation]="defaultElevation"
+   raisedElevation="16">
+	<mat-card-content>
+ <div style='height: 100%'>
+   <div [ngStyle]="style">
+  <ag-grid-angular
+  #agGrid
+  style="width: 1800px; height: 450px;"
+  class="ag-theme-material"
+  [rowData]="servicesData$ | async"
+  [columnDefs]="columnDefs"
+  [modules]="modules"
+  rowSelection="multiple"
+  [rowBuffer]="rowBuffer"
+  [frameworkComponents]="frameworkComponents"
+  [defaultColDef]="defaultColDef"
+  (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>
+ </div>
+ </div>
+	</mat-card-content>
+</mat-card>
+
+  <section class="example-section">
+    <mat-progress-bar
+     *ngIf="showSpinner$ | async"
+      class="example-margin"
+      [color]="color"
+      [mode]="mode"
+      [value]="value"
+      [bufferValue]="bufferValue"
+      >
+    </mat-progress-bar>
+  </section>
+</div>
+</ng-container>

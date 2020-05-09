@@ -1,16 +1,38 @@
 
 <header>
-    <h1>The Fist's Moncada Office Services</h1>
-
-    <!-- <iframe src="https://player.vimeo.com/video/359329279?color=ff9933&title=0&byline=0&portrait=0" width="640" height="361" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
-
-    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/OWy0e231eMI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-    <p>
-        <a mat-raised-button color="accent" style="margin-right: 10px;" href="https://fireship.io/courses/angular" target="blank">Build this App</a>
-        <a mat-raised-button href="https://github.com/codediodeio/angular-firestarter" target="blank">Source</a>
-    </p>
-
-
+    <h1>The First Moncada's Office Services</h1>
 </header>
+<div class="container">
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+        <mat-card width="tile.width" height="tile.height">
+           <mat-card-header>
+           <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+             <span class="material-icons">
+              launch
+              </span>
+              <a href="{{tile.url}}">{{tile.text}}</a></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>
+              <span  matTooltip="{{likeTooltip}}" class="material-icons">
+                thumb_up
+                </span>
+              </button>
+              <button mat-button>
+                <span matTooltip="{{shareTooltip}}" class="material-icons">
+                share
+                </span></button>
+            </mat-card-actions>
+          </mat-card>
 
-
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,17 @@
+<h2>{{title}}</h2>
+
+<div class="divTable">
+  <div class="divTableBody">
+    <div class="divTableRow">
+      <div class="divTableCell" *ngFor="let row of data$ | async">
+        <app-pie-chart [data]="row.data" [config]="row.config" [elementId]="row.elementId"></app-pie-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="example-section">
+  <mat-progress-bar *ngIf="showSpinner$ | async" class="example-margin" [color]="color" [mode]="mode" [value]="value"
+    [bufferValue]="bufferValue">
+  </mat-progress-bar>
+</section>

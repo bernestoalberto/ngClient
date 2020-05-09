@@ -2,19 +2,14 @@
 
 <a href="https://slackin-pbfjhfxnsa.now.sh"><img src="https://slackin-pbfjhfxnsa.now.sh/badge.svg"></a>
 
-<a href="https://circleci.com/gh/codediodeio/angular-firestarter"><img src="https://circleci.com/gh/codediodeio/angular-firestarter.svg?style=svg"></a>
+<a href="https://circleci.com/gh/codediodeio/angular-ng-client"><img src="https://circleci.com/gh/codediodeio/angular-ng-client.svg?style=svg"></a>
 
 </p>
 
-# FireStarter
+# The First Moncadas's Office
 
-Firestarter is an Angular PWA powered by Firebase.
+The First Moncadas's Office is an Angular PWA powered by Firebase.
 
-- [Live Demo](https://firestarter.fireship.io/)
-- [Lessons and Screencasts](https://fireship.io)
-- [Join the Slack Team](https://fireship.page.link/slack)
-
-![](https://firebasestorage.googleapis.com/v0/b/angular-voxer.appspot.com/o/demo-gif.gif?alt=media&token=dadcdb72-eb58-4903-b6b8-c741c27a08c4)
 
 ## Features
 
@@ -29,13 +24,13 @@ Firestarter is an Angular PWA powered by Firebase.
 
 1.  Run
 
-- `git clone https://github.com/codediodeio/angular-firestarter.git firestarter`
-- `cd firestarter`
+- `git clone https://github.com/codediodeio/angular-ng-client.git ng-client`
+- `cd ng-client`
 - `npm install`
 
 2.  Create a project at https://firebase.google.com/ and grab your web config:
 
-![](https://firebasestorage.googleapis.com/v0/b/firestarter-96e46.appspot.com/o/project-config.PNG?alt=media&token=5eabb205-7ba2-4fc3-905f-e9547055e754)
+![](https://firebasestorage.googleapis.com/v0/b/ng-client-96e46.appspot.com/o/project-config.PNG?alt=media&token=5eabb205-7ba2-4fc3-905f-e9547055e754)
 
 3.  Add the config to your Angular environment
 

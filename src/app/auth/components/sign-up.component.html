@@ -1,0 +1,95 @@
+<div class="container">
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <!---- <div mat-card-avatar >
+        <img mat-card-image src="../../assets/images/servicesnproducts/{{service.link}}" alt="{{service.description}}">
+      </div>-->
+      <mat-card-title style="position:relative">Sign Up </mat-card-title>
+    </mat-card-header>
+    <!----  <img mat-card-image src="../../assets/images/servicesnproducts/{{service.link}}" alt="{{service.description}}">-->
+    <mat-card-content>
+      <div *ngIf="errorMessage">
+        <div class="alert alert-danger" role="alert">
+          {{errorMessage }}
+        </div>
+      </div>
+      <form [formGroup]="signUpForm" (submit)="signUpUser()">
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input matInput autocomplete placeholder="Username" formControlName="username" required autocomplete
+              autofocus>
+            <mat-icon matSuffix>person_outline</mat-icon>
+            <mat-error *ngIf="signUpForm.hasError('required', ['username'])">Username is required</mat-error>
+            <mat-error
+              *ngIf="signUpForm.hasError('invalid', ['username']) && (signUpForm.hasError('dirty', ['username']))"
+              class="has-text-danger">Your email does not look right</mat-error>
+            <mat-hint align="end">Username is your email address</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input type="password" matInput autocomplete placeholder="Pass****" formControlName="password" required>
+            <mat-icon matSuffix>fingerprint</mat-icon>
+            <mat-error *ngIf="signUpForm.hasError('required', ['password'])">Password is required</mat-error>
+            <mat-error
+              *ngIf="signUpForm.hasError('invalid', ['password'])  && (signUpForm.hasError('dirty', ['password']))"
+              class="has-text-danger">
+              Your password does not look right</mat-error>
+            <mat-error
+              *ngIf="signUpForm.hasError('invalid', ['password'])  && signUpForm.hasError('touched', ['password'])"
+              class="has-text-danger">Your password does not look right</mat-error>
+            <mat-hint align="end">Must have one letter, and one number</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <input type="password" matInput autocomplete placeholder="Consfirm Pass****"
+              formControlName="password_check">
+            <mat-icon matSuffix>fingerprint</mat-icon>
+            <mat-error *ngIf="signUpForm.hasError('required', ['password_check'])">Password is required</mat-error>
+            <mat-error *ngIf="signUpForm.hasError('passwordsNotEqual')">Passwords are different. They should be equal!
+            </mat-error>
+            <mat-error
+              *ngIf="signUpForm.hasError('invalid', ['password_check'])  && signUpForm.hasError('touched', ['password_check'])"
+              class="has-text-danger">
+              Your password does not look right</mat-error>
+            <mat-hint align="end">Must have one letter, and one number</mat-hint>
+          </mat-form-field>
+        </div>
+        <p>
+          <span>Already have an account?&nbsp;</span>
+          <a routerLink="/login">Log in!</a>
+        </p>
+        <mat-card-actions>
+          <div mat-dialog-actions>
+            <button mat-raised-button color="warn" (click)="reset()">Cancel </button>
+            <button mat-raised-button color="primary" *ngIf="signUpForm.valid" type="submit"
+              [disabled]="!signUpForm.valid">Sign Up
+            </button>
+          </div>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+  <mat-card class="example-card">
+    <mat-card-content>
+      <!----  <div id="firebaseui-auth-container" class="auth-container">
+    </div>-->
+      <button
+       mat-raised-button color="warn"
+      (click)="signUpEmailFire()">
+        SignUp
+        <img [src]="url">
+      </button>
+    </mat-card-content>
+  </mat-card>
+  <section class="example-section">
+    <mat-progress-bar *ngIf="showSpinner$ | async" class="example-margin" [color]="color" [mode]="mode" [value]="value"
+      [bufferValue]="bufferValue">
+    </mat-progress-bar>
+  </section>
+</div>

@@ -1,0 +1,16 @@
+.example-margin {
+  margin: 0 10px;
+}
+
+.example-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+}
+/*# sourceMappingURL=mng-services.component.css.map */

@@ -151,7 +151,6 @@ import {MessagingService} from './shared/messaging.service';
     //  StoreModule.forFeature('moft', reducers),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(effects),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

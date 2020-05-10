@@ -1,6 +1,12 @@
-<input matInput  placeholder="Search"
+<div class="content">
+<mat-form-field class="example-full-width">
+<input
+    matInput
+    placeholder="Search"
     (keyup)="searchTerm$.next($event.target.value)">
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'check' : 'search'}}</mat-icon>
+    <mat-hint>Search your criteria</mat-hint>
+  </mat-form-field>
 <ul *ngIf="results">
   <li *ngFor="let result of results | slice:0:9">
     <a href="{{ result.latest }}" target="_blank">
@@ -8,3 +14,4 @@
     </a>
   </li>
 </ul>
+</div>

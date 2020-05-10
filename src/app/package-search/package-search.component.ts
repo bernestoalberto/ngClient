@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-package-search',
   templateUrl: './package-search.component.html',
-  styleUrls: ['./package-search.component.css'],
+  styleUrls: ['./package-search.component.scss'],
   providers: [PackageSearchService]
 })
 

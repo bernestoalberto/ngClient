@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MediaComponent } from './media/component/media.component';
 import { MngServicesComponent } from './mng-services/mng-services.component';
 import { AuthGuard } from './user/auth.guard';
 import {LoginPageComponent} from './user/login-page/login-page.component';
 import {ReportsComponent} from './reports/reports.component';
+import { EventComponent } from './calendar/event.component';
+
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   {
@@ -52,20 +55,31 @@ const routes: Routes = [
     //  import('./mng-services/mng-services.module').then(m => m.ServicesModule),
     canActivate: [AuthGuard]
   },
-  // {
-  //   path: 'media',
-  // data: {
-    // breadcrumb: 'Media'
-  // },
+  {
+    path: 'media',
+    data: {
+    breadcrumb: 'Media'
+    },
+    component: MediaComponent,
   //   loadChildren: () =>
   //   import('./media/media.module').then(m => m.MediaModule),
-  //   canActivate: [AuthGuard]
-  // },
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'event',
+    data: {
+    breadcrumb: 'Calendar'
+    },
+    component: EventComponent,
+  //   loadChildren: () =>
+  //   import('./media/media.module').then(m => m.MediaModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-initialNavigation: 'enabled'
+  initialNavigation: 'enabled'
 })],
   exports: [RouterModule]
 })

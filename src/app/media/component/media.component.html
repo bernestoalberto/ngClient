@@ -1,7 +1,10 @@
 <!-- Media Table -->
 <div class="col-lg-12 col-md-12">
-  <h1>Manage Media</h1>
-  <button mat-raised-button color="primary" (click)="openUploadDialog()">Upload</button>
+  <h1 class="content">Manage Media</h1>
+  <button mat-mini-fab  class="content" color="accent" (click)="openUploadDialog()">
+    <span class="material-icons">
+    cloud_upload
+    </span></button>
   <div class="example-container mat-elevation-z8">
     <div class="example-header">
       <app-package-search></app-package-search>
@@ -11,7 +14,7 @@
   <br>
   <div></div>
 
-  <mat-card appMaterialElevation raisedElevation="16">
+  <mat-card class="content" appMaterialElevation raisedElevation="16">
     <mat-card-header>
       <mat-card-title>Media Grid</mat-card-title>
     </mat-card-header>

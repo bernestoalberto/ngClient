@@ -24,7 +24,7 @@ import { UploadService } from './media.service';
 @Component({
   selector: 'app-upload',
   templateUrl: './media.component.html',
-  styleUrls: ['./media.component.css'],
+  styleUrls: ['./media.component.scss'],
 })
 export class MediaComponent implements OnInit, OnDestroy {
   public columnDefs = [

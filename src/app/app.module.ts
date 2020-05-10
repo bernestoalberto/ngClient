@@ -36,6 +36,7 @@ import {IpayModule} from './ipay/ipay.module';
 import {ServicesModule} from './mng-services/mng-services.module';
 import { AuthModule } from './auth/auth.module';
 import {ReportsModule} from './reports/reports.module';
+import {EventModule} from './calendar/event.module';
 
 import { DashBoardComponent } from './dashboard/dashboard.component';
 import { TaxComponent } from './tax/tax.component';
@@ -54,6 +55,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 // Material Modules
 import {MaterialModule} from './material/material.module';
+
+import {TranslateModule} from '@ngx-translate/core';
 
 // NGRX
 import { StoreModule } from '@ngrx/store';
@@ -105,7 +108,9 @@ import {MessagingService} from './shared/messaging.service';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HelpModule,
+    TranslateModule.forRoot(),
     PackageSearchModule,
+    EventModule,
     MediaModule,
     PrepaidServiceModule,
     QuicklinkModule,

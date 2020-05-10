@@ -57,6 +57,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import {MaterialModule} from './material/material.module';
 
 import {TranslateModule} from '@ngx-translate/core';
+import { MapModule } from './map/map.module';
 
 // NGRX
 import { StoreModule } from '@ngrx/store';
@@ -104,9 +105,10 @@ import {MessagingService} from './shared/messaging.service';
     MaterialModule,
   ],
   imports: [
-    CommonModule,
+  CommonModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    MapModule,
     HelpModule,
     TranslateModule.forRoot(),
     PackageSearchModule,

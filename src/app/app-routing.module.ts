@@ -7,6 +7,9 @@ import { AuthGuard } from './user/auth.guard';
 import {LoginPageComponent} from './user/login-page/login-page.component';
 import {ReportsComponent} from './reports/reports.component';
 import { EventComponent } from './calendar/event.component';
+import { MapComponent } from './map/map.component';
+
+
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -71,15 +74,21 @@ const routes: Routes = [
     breadcrumb: 'Calendar'
     },
     component: EventComponent,
-  //   loadChildren: () =>
-  //   import('./media/media.module').then(m => m.MediaModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'map',
+    data: {
+    breadcrumb: 'Map'
+    },
+    component: MapComponent,
     canActivate: [AuthGuard]
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-  initialNavigation: 'enabled'
+initialNavigation: 'enabled'
 })],
   exports: [RouterModule]
 })

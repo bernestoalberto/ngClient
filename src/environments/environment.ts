@@ -24,8 +24,7 @@ export const environment = {
     discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
     scope: 'https://www.googleapis.com/auth/calendar'
   },
-  googleMapsApiKey: 'AIzaSyCiWMlXeWJX0y9nJwNrd7XadPD_DrGIupTc',
-  GOOGLE_MAPS_API_KEY: 'AIzaSyBK_Y1fqx6FsIwIftOW9Ezt3vlaNFIL3lw',
+  googleMapsApiKey: 'AIzaSyBK_Y1fqx6FsIwIftOW9Ezt3vlaNFIL3lw',
   firebase:  {
     apiKey: 'AIzaSyDoqRhvIvb4t6Tl6z9svVnOMG1hWKsD3TU',
     authDomain: 'adminmoftbot.firebaseapp.com',

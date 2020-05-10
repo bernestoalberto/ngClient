@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { SnackBarService } from '../../snackBar/snackBar';
 import {MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Service} from '../service.model';
-import { Subscriber, Observable, pipe } from 'rxjs';
+import { Subscriber, Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 

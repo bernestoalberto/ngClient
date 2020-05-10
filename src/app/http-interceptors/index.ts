@@ -4,15 +4,15 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // #enddocregion interceptor-providers
-import { AuthInterceptor } from './auth-interceptor';
+// import { AuthInterceptor } from './auth-interceptor';
 // #docregion interceptor-providers
-import { NoopInterceptor } from './noop-interceptor';
+// import { NoopInterceptor } from './noop-interceptor';
 // #enddocregion interceptor-providers
 import {EnsureDomainInterceptor} from './ensure-domain-change-interceptors';
 import { UploadInterceptor } from './upload-interceptor';
 
 // import { RepHttpInterceptor } from './http-interceptor-rep';
-import { TrimNameInterceptor } from './trim-name-interceptors';
+// import { TrimNameInterceptor } from './trim-name-interceptors';
 import { LoggingInterceptor } from './logging-interceptor';
 import { ErrorInterceptor } from './auth-interceptor';
 
@@ -20,7 +20,7 @@ import { ErrorInterceptor } from './auth-interceptor';
 
 
 // #docregion interceptor-providers
-import { EnsureHttpsInterceptor } from './ensure-https-interceptors';
+// import { EnsureHttpsInterceptor } from './ensure-https-interceptors';
 /** Http interceptor providers in outside-in order  */
 export const httpInterceptorProviders = [
   // #docregion noop-provider

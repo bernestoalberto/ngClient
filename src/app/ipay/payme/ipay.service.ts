@@ -48,7 +48,7 @@ export class IpayService {
       this.backoff(3, 250),
       debounceTime(5000),
       distinctUntilChanged(),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
 
   }
@@ -64,7 +64,7 @@ export class IpayService {
     );
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
+  /*private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
@@ -76,25 +76,25 @@ export class IpayService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
+  }*/
   public getServicesFireBaseDB(): Observable<DocumentChangeAction<any>[]> {
     return this.db.collection('service').snapshotChanges().pipe(
       map((response) => response),
       debounceTime(5000),
       distinctUntilChanged(),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
   }
   getServiceByServiceNo(name): any {
     return this.httpClient.post(`${BASE_URL}/find`, name).pipe(
       map((response: Response) => response.json())
-      , catchError(err => of([]))
+      , catchError(_ => of([]))
     );
   }
   getNextServiceID(table): Observable<any> {
     return this.httpClient.get(`${BASE_URL}/find` + table).pipe(
       map((response: Response) => response.json()),
-      catchError(err => of([])));
+      catchError(_ => of([])));
 
   }
   createService(serviceData: any): any {
@@ -102,7 +102,7 @@ export class IpayService {
       if (serviceData.value) {
         return this.httpClient.post(`${BASE_URL}}/create_services`, serviceData.value).pipe(
           map((response: Response) => response.json()),
-          catchError(err => of([]))
+          catchError(_ => of([]))
         );
         }
   }
@@ -110,7 +110,7 @@ export class IpayService {
       // const options = new RequestOptions ({headers: new HttpHeaders({'x-token': this.authService.token})});
       return this.httpClient.post(`${BASE_URL}/update_services`, serviceData).pipe(
         map((response: Response) => response.json()),
-        catchError(err => of([]))
+        catchError(_ => of([]))
       );
 
   }
@@ -118,7 +118,7 @@ export class IpayService {
       // const options = new RequestOptions ({headers: new HttpHeaders({'x-token': this.authService.token})});
       return this.httpClient.post(`${BASE_URL}/delete_Service`, id).pipe(
         map((response: Response) => response.json()),
-        catchError(err => of([]))
+        catchError(_ => of([]))
       );
     }
   }

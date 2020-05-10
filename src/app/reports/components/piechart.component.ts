@@ -2,9 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { GooglePieChartService } from './../google-pie-chart.service';
 import { PieChartConfig } from './../PieChartConfig';
-
-declare var google: any;
-
+import { GlobalConstants } from './../../shared/global-constants';
 
 @Component({
   selector: 'app-pie-chart',
@@ -16,7 +14,7 @@ export class PieChartComponent implements OnInit {
   @Input() data: any[];
   @Input() config: PieChartConfig;
   @Input() elementId: string;
-
+  public google = GlobalConstants.google;
   constructor(private pieChartService: GooglePieChartService) { }
 
   ngOnInit(): void {

@@ -36,6 +36,16 @@ import {IpayModule} from './ipay/ipay.module';
 import {ServicesModule} from './mng-services/mng-services.module';
 import { AuthModule } from './auth/auth.module';
 import {ReportsModule} from './reports/reports.module';
+
+import { DashBoardComponent } from './dashboard/dashboard.component';
+import { TaxComponent } from './tax/tax.component';
+import {HelpModule} from './help/help.module';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DownloaderComponent } from './downloader/downloader.component';
+import {PackageSearchModule} from './package-search/package-search.module';
+import { MediaModule } from './media/media.module';
+import { PrepaidServiceModule } from './prepaid-service/prepaid-service.module';
+import { QuicklinkModule } from 'ngx-quicklink';
 // AgGrid
 import { AgGridModule } from 'ag-grid-angular';
 // Firebase imports
@@ -72,6 +82,10 @@ import {MessagingService} from './shared/messaging.service';
     AppComponent,
     HomePageComponent,
     BreadcrumbComponent,
+    CheckoutComponent,
+    DownloaderComponent,
+    DashBoardComponent,
+    TaxComponent,
       /* Pipes */
         KeysPipe,
         ReplaceName,
@@ -87,9 +101,14 @@ import {MessagingService} from './shared/messaging.service';
     MaterialModule,
   ],
   imports: [
-  CommonModule,
-  BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    CommonModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    HelpModule,
+    PackageSearchModule,
+    MediaModule,
+    PrepaidServiceModule,
+    QuicklinkModule,
     BreadcrumbModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -139,6 +158,8 @@ import {MessagingService} from './shared/messaging.service';
     SnackBarService,
     BreadcrumbComponent,
     httpInterceptorProviders,
+    DashBoardComponent,
+    PackageSearchModule,
     MessageService,
     MessagingService,
     HttpErrorHandler,

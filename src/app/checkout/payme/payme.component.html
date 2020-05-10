@@ -1,0 +1,22 @@
+<div>
+  <div *ngIf="!paidFor">
+
+
+    <h1>Buy this {{ service.name }} - {{ service.price }} {{service.currency}} </h1>
+
+    <p>{{ service.description }}</p>
+
+    <img width="400" [src]="service.link" alt="pay me">
+
+  </div>
+
+  <div *ngIf=paidFor>
+    <h1>Yay, you bought a {{ service.name }} !!!</h1>
+
+    <img src="assets/giphy.gif" alt="pay us">
+  </div>
+  </div>
+
+
+
+  <div [hidden]="paidFor" #paypal></div>

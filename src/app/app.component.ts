@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInAnimation } from './shared/animations';
-import { SwPush, SwUpdate } from '@angular/service-worker';
+ import {/* SwPush,*/ SwUpdate } from '@angular/service-worker';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +8,7 @@ import { SwPush, SwUpdate } from '@angular/service-worker';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit{
-  constructor(private swPush: SwPush,  private swUpdate: SwUpdate) {}
+  constructor(/*private swPush: SwPush,*/  private swUpdate: SwUpdate) {}
    ngOnInit() {
     if (this.swUpdate.isEnabled) {
 
@@ -20,6 +20,6 @@ export class AppComponent implements OnInit{
         }
       });
     }
-    //    this.subscribeToNotifications();
+      //  this.subscribeToNotifications();
   }
 }

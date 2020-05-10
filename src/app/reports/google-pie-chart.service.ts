@@ -1,15 +1,16 @@
 import { GoogleChartsBaseService } from './google-charts.base.service';
 import { Injectable } from '@angular/core';
 import { PieChartConfig, PieChart } from './PieChartConfig';
-import { map, catchError,  debounceTime, tap, retryWhen, mergeMap, distinctUntilChanged, shareReplay } from 'rxjs/operators';
+import { map, retryWhen, mergeMap/*,  catchError,  debounceTime, tap,distinctUntilChanged, shareReplay */} from 'rxjs/operators';
 import { Observable, of, pipe, range, timer, zip, BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { GlobalConstants } from './../shared/global-constants';
 
-import { environment } from '../../environments/environment';
-declare var google: any;
+// import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+
+// import { environment } from '../../environments/environment';
 
 const INIT_DATA = {};
-const BASE_URL = environment.BASE_URL + 'reports';
+// const BASE_URL = environment.BASE_URL + 'reports';
 const reportData: PieChart[] = [{
   data: [['Task', 'Hours per Day'],
   ['Eat', 3],
@@ -34,6 +35,7 @@ const reportData: PieChart[] = [{
 export class GooglePieChartService extends GoogleChartsBaseService {
   private dataStore = new BehaviorSubject<any>(INIT_DATA);
   cast$: Observable<any> = this.dataStore.asObservable();
+  public google = GlobalConstants.google;
   httpOptions = {
     observe: 'response',
     reportProgress: true,
@@ -41,10 +43,10 @@ export class GooglePieChartService extends GoogleChartsBaseService {
     withCredentials: false
   };
 
-  constructor(private httpClient: HttpClient) { super(); }
+  constructor(/*private httpClient: HttpClient*/) { super(); }
 
   public BuildPieChart(elementId: string, data: any[], config: PieChartConfig): void {
-    const chartFunc = () => new google.visualization.PieChart(document.getElementById(elementId));
+    const chartFunc = () => new this.google.visualization.PieChart(document.getElementById(elementId));
     const options = {
       title: config.title,
       pieHole: config.pieHole,

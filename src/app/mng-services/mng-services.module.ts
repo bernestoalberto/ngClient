@@ -42,7 +42,6 @@ import {
 } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 // import { MatOpt }
-// import {PackageSearchModule} from '../package-search/package-search.module';
 
 const serviceRoutes: Routes = [{ path: 'services', component: MngServicesComponent }];
 import { ServicesRoutingModule } from './service-routing.module';
@@ -63,7 +62,6 @@ export function getServicesConfig(saveKeys: string[], localStorageKey: string, s
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    // PackageSearchModule,
     MatBadgeModule,
     RouterModule.forChild(serviceRoutes),
     StoreModule.forFeature('services', serviceReducer, SERVICES_CONFIG_TOKEN),

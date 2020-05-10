@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SeoService } from 'src/app/services/seo.service';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { tap } from 'rxjs/operators';
+// import { AngularFirestore } from '@angular/fire/firestore';
 import { CustomerDataService } from '../customer-data.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { CustomerDataService } from '../customer-data.service';
 export class ListPageComponent implements OnInit {
   customers;
 
-  constructor(private seo: SeoService, private db: AngularFirestore, public data: CustomerDataService) {}
+  constructor(private seo: SeoService/*, private db: AngularFirestore*/, public data: CustomerDataService) {}
 
   ngOnInit() {
     this.seo.generateTags({

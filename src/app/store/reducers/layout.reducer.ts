@@ -21,8 +21,8 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
   // Even thought the `state` is unused, it helps infer the return type
-  on(LayoutActions.closeSidenav, state => ({ showSidenav: false, theme: 'primary' })),
-  on(LayoutActions.openSidenav, state => ({ showSidenav: true, theme: 'primary' })),
+  on(LayoutActions.closeSidenav, _ => ({ showSidenav: false, theme: 'primary' })),
+  on(LayoutActions.openSidenav, _ => ({ showSidenav: true, theme: 'primary' })),
   // on(AuthActions.logoutConfirmation , state => ({ showSidenav: false , theme: 'primary' }))
 );
 

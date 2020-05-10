@@ -30,7 +30,7 @@ export class ChildMessageRendererComponent implements ICellRendererAngularComp {
     this.params = params;
   }
   constructor(private dialog: MatDialog) {}
-  public openDialog(numDialog = 2, payload = {}) {
+  public openDialog(numDialog = 2/*, payload = {}*/) {
 
     if (numDialog === 2) {
       this.dialogRef = this.dialog.open(EditServicesComponent, {

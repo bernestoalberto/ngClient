@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Renderer2, OnChanges } from '@angular/core';
 
 @Directive({
   selector: '[appMaterialElevation]'
@@ -18,7 +18,7 @@ export class MaterialElevationDirective implements OnChanges {
     this.setElevation(this.defaultElevation);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(/*changes: SimpleChanges*/) {
     this.setElevation(this.defaultElevation);
   }
 

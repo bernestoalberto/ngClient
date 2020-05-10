@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpEvent, HttpInterceptor, HttpHandler,
+  HttpInterceptor, HttpHandler,
   HttpRequest, HttpResponse
 } from '@angular/common/http';
 
@@ -23,7 +23,7 @@ export class LoggingInterceptor implements HttpInterceptor {
           // Succeeds when there is a response; ignore other events
           event => ok = event instanceof HttpResponse ? 'succeeded' : '',
           // Operation failed; error is an HttpErrorResponse
-          error => ok = 'failed'
+          _ => ok = 'failed'
         ),
         // Log when response observable either completes or errors
         finalize(() => {

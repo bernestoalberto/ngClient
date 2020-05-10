@@ -9,6 +9,8 @@ import {ReportsComponent} from './reports/reports.component';
 import { EventComponent } from './calendar/event.component';
 import { MapComponent } from './map/map.component';
 
+import { DashBoardComponent } from './dashboard/dashboard.component';
+
 
 
 const routes: Routes = [
@@ -44,8 +46,6 @@ const routes: Routes = [
       breadcrumb: 'Services'
     },
     component: MngServicesComponent,
-    //  loadChildren: () =>
-    //  import('./mng-services/mng-services.module').then(m => m.ServicesModule),
     canActivate: [AuthGuard]
   },
   {
@@ -84,11 +84,18 @@ const routes: Routes = [
     component: MapComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'dashboard',
+    data: {
+    breadcrumb: 'Dashboard'
+    },
+    component: DashBoardComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-initialNavigation: 'enabled'
 })],
   exports: [RouterModule]
 })

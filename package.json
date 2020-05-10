@@ -50,6 +50,7 @@
     "@schematics/angular": "^9.1.4",
     "flatpickr": "^4.6.3",
     "flex-layout": "^1.0.1",
+    "ng-push": "^0.2.2",
     "ngx-quicklink": "^0.2.1",
     "primeng": "^9.0.6",
     "reflect-metadata": "^0.1.13"

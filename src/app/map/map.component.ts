@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 
 @Component({
@@ -6,33 +6,40 @@ import { MouseEvent } from '@agm/core';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent {
+export class MapComponent implements OnInit{
+ // initial center position for the map
+ lat = 27.9506;
+ lng = -82.4572;
 
   // google maps zoom level
   zoom = 8;
   markers: Marker[] = [
     {
-      lat: 51.673858,
-      lng: 7.815982,
+      lat: 	this.lat,
+      lng:  this.lng,
       label: 'A',
       draggable: true
     },
     {
-      lat: 51.373858,
-      lng: 7.215982,
+      lat: this.lat,
+      lng: this.lng,
       label: 'B',
       draggable: false
     },
     {
-      lat: 51.723858,
-      lng: 7.895982,
+      lat: this.lat,
+      lng: this.lng,
       label: 'C',
       draggable: true
     }
   ]
-  // initial center position for the map
-  lat = 51.673858;
-  lng = 7.815982;
+
+
+  ngOnInit(){
+    setTimeout(()=>{
+      this.geoLocation();
+    }, 10000);
+  }
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -50,6 +57,29 @@ export class MapComponent {
     console.log('dragEnd', m, $event);
   }
 
+  geoLocation(){
+    if (window.navigator && window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+          position => {
+            this.lng = position.coords.longitude;
+            this.lat = position.coords.latitude;
+          },
+          error => {
+              switch (error.code) {
+                  case 1:
+                      console.log('Permission Denied');
+                      break;
+                  case 2:
+                      console.log('Position Unavailable');
+                      break;
+                  case 3:
+                      console.log('Timeout');
+                      break;
+              }
+          }
+      );
+  };
+  }
 
 }
 

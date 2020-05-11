@@ -6,11 +6,11 @@ import {
 
 // #docregion excerpt
 import { finalize, tap } from 'rxjs/operators';
-import { MessageService } from '../_services/message.service';
+import { NewsletterService } from '../_services/message.service';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
-  constructor(private messenger: MessageService) {}
+  constructor(private messenger: NewsletterService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const started = Date.now();

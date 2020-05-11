@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInAnimation } from './shared/animations';
 import { SwPush, SwUpdate } from '@angular/service-worker';
+import {NewsletterService} from './_services/message.service';
+import { environment } from 'src/environments/environment';
+import { PushNotificationsService} from 'ng-push-ivy';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,10 +11,13 @@ import { SwPush, SwUpdate } from '@angular/service-worker';
   animations: [slideInAnimation],
 })
 export class AppComponent implements OnInit {
-  readonly VAPID_PUBLIC_KEY = 'BLBx-hf2WrL2qEa0qKb-aCJbcxEvyn62GDTyyP9KTS5K7ZL0K7TfmOKSPqp8vQF0DaG8hpSBknz_x3qf5F4iEFo';
-  // private newsletterService: NewsletterService
+  readonly VAPID_PUBLIC_KEY = environment.VAPID_PUBLIC_KEY;
+  private newsletterService: NewsletterService;
+  title = 'Web push Notifications!';
 
-  constructor(private swPush: SwPush, private swUpdate: SwUpdate) { }
+  constructor(private swPush: SwPush, private swUpdate: SwUpdate, private _pushNotifications: PushNotificationsService ) {
+    this._pushNotifications.requestPermission();
+   }
   ngOnInit() {
     if (this.swUpdate.isEnabled) {
 
@@ -23,16 +29,26 @@ export class AppComponent implements OnInit {
         }
       });
     }
-    setTimeout(()=>{
-     this.subscribeToNotifications();
-    },15000);
+    //  this.subscribeToNotifications();
+    // this.notify();
   }
-
+  notify(){
+    const options = {
+      body: `The truth is, I'am Iron Man!`,
+      icon: 'assets/images/ironman.png'
+    }
+     this._pushNotifications.create('Iron Man', options).subscribe(
+        res => console.log(res),
+        err => console.log(err)
+    );
+  }
   subscribeToNotifications() {
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
-      // .then(sub => this.newsletterService.addPushSubscriber(sub).subscribe())
+      .then(sub => {
+        this.newsletterService.addPushSubscriber(sub).subscribe()
+      })
       .then(sub => console.log(sub))
       .catch(err => console.error('Could not subscribe to notifications', err));
   }

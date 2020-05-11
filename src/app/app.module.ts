@@ -37,6 +37,7 @@ import {ServicesModule} from './mng-services/mng-services.module';
 import { AuthModule } from './auth/auth.module';
 import {ReportsModule} from './reports/reports.module';
 import {EventModule} from './calendar/event.module';
+import { PushNotificationsModule } from 'ng-push-ivy';
 
 import { DashBoardComponent } from './dashboard/dashboard.component';
 import { TaxComponent } from './tax/tax.component';
@@ -76,7 +77,7 @@ import { effects } from './store/effects';
 // Services
 import { RequestCache, RequestCacheWithMap } from './_services/request-cache.service';
 import { HttpErrorHandler } from './_services/http-error-handler.service';
-import { MessageService } from './_services/message.service';
+import { NewsletterService } from './_services/message.service';
 import { PagerService } from './_services/pageination.service';
 import { SnackBarService } from './snackBar/snackBar';
 import { AuthService } from './_services/auth.service';
@@ -115,6 +116,7 @@ import {MessagingService} from './shared/messaging.service';
     EventModule,
     MediaModule,
     PrepaidServiceModule,
+    PushNotificationsModule,
     QuicklinkModule,
     BreadcrumbModule,
     BrowserAnimationsModule,
@@ -166,7 +168,7 @@ import {MessagingService} from './shared/messaging.service';
     httpInterceptorProviders,
     DashBoardComponent,
     PackageSearchModule,
-    MessageService,
+    NewsletterService,
     MessagingService,
     HttpErrorHandler,
     { provide: RequestCache, useClass: RequestCacheWithMap },

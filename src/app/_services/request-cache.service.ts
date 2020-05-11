@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 
-import { MessageService } from './message.service';
+import { NewsletterService } from './message.service';
 
 export interface RequestCacheEntry {
   url: string;
@@ -23,7 +23,7 @@ export class RequestCacheWithMap implements RequestCache {
 
   cache = new Map<string, RequestCacheEntry>();
 
-  constructor(private messenger: MessageService) { }
+  constructor(private messenger: NewsletterService) { }
 
   get(req: HttpRequest<any>): HttpResponse<any> | undefined {
     const url = req.urlWithParams;

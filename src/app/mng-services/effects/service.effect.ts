@@ -23,7 +23,7 @@ export class ServiceEffect {
       serviceActions.ServiceActionTypes.LOAD_SERVICES
     ),
     delay(150),
-    mergeMap((action: serviceActions.LoadServices) =>
+    mergeMap((/*action: serviceActions.LoadServices*/) =>
       this.serviceService.getServices().pipe(
         map(
           (customers: ServiceResponse) => {

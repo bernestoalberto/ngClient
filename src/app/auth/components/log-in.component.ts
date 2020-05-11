@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       username: new FormControl('', EmailValidation),
       password: new FormControl('', PasswordValidation),
     });
-    this.subcriptions.sink = this.store.select(fromStoreAuth.isLoading).subscribe((state) => {
+    this.subcriptions.sink = this.store.select(fromStoreAuth.isLoading).subscribe(_ => {
     this.showSpinner$ = this.isLoading$;
     this.showSpinnerCounter();
     });

@@ -36,6 +36,18 @@ import {IpayModule} from './ipay/ipay.module';
 import {ServicesModule} from './mng-services/mng-services.module';
 import { AuthModule } from './auth/auth.module';
 import {ReportsModule} from './reports/reports.module';
+import {EventModule} from './calendar/event.module';
+import { PushNotificationsModule } from 'ng-push-ivy';
+
+import { DashBoardComponent } from './dashboard/dashboard.component';
+import { TaxComponent } from './tax/tax.component';
+import {HelpModule} from './help/help.module';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { DownloaderComponent } from './downloader/downloader.component';
+import {PackageSearchModule} from './package-search/package-search.module';
+import { MediaModule } from './media/media.module';
+import { PrepaidServiceModule } from './prepaid-service/prepaid-service.module';
+import { QuicklinkModule } from 'ngx-quicklink';
 // AgGrid
 import { AgGridModule } from 'ag-grid-angular';
 // Firebase imports
@@ -44,6 +56,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 // Material Modules
 import {MaterialModule} from './material/material.module';
+
+import {TranslateModule} from '@ngx-translate/core';
+import { MapModule } from './map/map.module';
 
 // NGRX
 import { StoreModule } from '@ngrx/store';
@@ -62,7 +77,7 @@ import { effects } from './store/effects';
 // Services
 import { RequestCache, RequestCacheWithMap } from './_services/request-cache.service';
 import { HttpErrorHandler } from './_services/http-error-handler.service';
-import { MessageService } from './_services/message.service';
+import { NewsletterService } from './_services/message.service';
 import { PagerService } from './_services/pageination.service';
 import { SnackBarService } from './snackBar/snackBar';
 import { AuthService } from './_services/auth.service';
@@ -72,6 +87,10 @@ import {MessagingService} from './shared/messaging.service';
     AppComponent,
     HomePageComponent,
     BreadcrumbComponent,
+    CheckoutComponent,
+    DownloaderComponent,
+    DashBoardComponent,
+    TaxComponent,
       /* Pipes */
         KeysPipe,
         ReplaceName,
@@ -88,8 +107,17 @@ import {MessagingService} from './shared/messaging.service';
   ],
   imports: [
   CommonModule,
-  BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    MapModule,
+    HelpModule,
+    TranslateModule.forRoot(),
+    PackageSearchModule,
+    EventModule,
+    MediaModule,
+    PrepaidServiceModule,
+    PushNotificationsModule,
+    QuicklinkModule,
     BreadcrumbModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -125,7 +153,6 @@ import {MessagingService} from './shared/messaging.service';
     //  StoreModule.forFeature('moft', reducers),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature(effects),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -139,7 +166,9 @@ import {MessagingService} from './shared/messaging.service';
     SnackBarService,
     BreadcrumbComponent,
     httpInterceptorProviders,
-    MessageService,
+    DashBoardComponent,
+    PackageSearchModule,
+    NewsletterService,
     MessagingService,
     HttpErrorHandler,
     { provide: RequestCache, useClass: RequestCacheWithMap },

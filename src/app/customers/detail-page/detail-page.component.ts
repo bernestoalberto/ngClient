@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
+// import { AngularFirestore } from '@angular/fire/firestore';
 import { tap } from 'rxjs/operators';
 import { SeoService } from 'src/app/services/seo.service';
 import { CustomerDataService } from '../customer-data.service';
@@ -17,7 +17,7 @@ export class DetailPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private db: AngularFirestore,
+    // private db: AngularFirestore,
     private seo: SeoService,
     public data: CustomerDataService
   ) {}

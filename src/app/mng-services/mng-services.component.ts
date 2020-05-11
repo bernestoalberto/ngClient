@@ -220,7 +220,7 @@ export class MngServicesComponent implements OnInit {
   getCantServices(): Observable<number> {
     return this.store.pipe(select(fromService.getCantServices));
   }
-  public updateOrdersTable(pagePerItem: number) {
+  public updateOrdersTable(/*pagePerItem: number*/) {
     this.getServices();
   }
 

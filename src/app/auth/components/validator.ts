@@ -1,4 +1,4 @@
-import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, /*FormGroupDirective, NgForm*/ } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 export const EmailValidation = [Validators.required, Validators.email];
@@ -19,7 +19,7 @@ export const AgreeValidation = [false, [
   Validators.requiredTrue
 ]];
 export class RepeatPasswordEStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: FormControl | null,/* form: FormGroupDirective | NgForm | null*/): boolean {
     return (control && control.parent.get('password').value !== control.parent.get('passwordAgain').value && control.dirty);
   }
 }

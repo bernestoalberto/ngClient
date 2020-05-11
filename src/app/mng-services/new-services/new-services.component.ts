@@ -37,7 +37,7 @@ export class NewServicesComponent implements OnInit {
 /* OnDestroy() {
   this.serviceSub$.unsubscribe();
 }*/
-constructor(private serviceService: IpayService,
+constructor(/*private serviceService: IpayService,*/
             private  fb: FormBuilder,
             private store: Store<fromService.AppState>,
             private snackBar: SnackBarService ) {

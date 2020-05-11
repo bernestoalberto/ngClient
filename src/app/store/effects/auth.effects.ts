@@ -199,7 +199,7 @@ export class AuthEffects {
   logout$ = this.actions$
     .pipe(
       ofType<LogoutConfirmed>(AuthActionTypes.LogoutConfirmed),
-      exhaustMap(auth =>
+      exhaustMap(_ =>
         this.authService
           .logout(localStorage.getItem('token'))
           .pipe(

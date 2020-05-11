@@ -83,7 +83,7 @@ export class AuthService {
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
-      catchError(err => of([])));
+      catchError(_ => of([])));
   }
   loginUserFire(user) {
     return this.http.post<any>(`${environment.firebase.BASE_URL}/verifyPassword?key=
@@ -91,7 +91,7 @@ export class AuthService {
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
   }
 
@@ -102,7 +102,7 @@ export class AuthService {
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
   }
    // Confirm email vertification
@@ -113,7 +113,7 @@ export class AuthService {
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
   }
   // Verify Password
@@ -124,7 +124,7 @@ export class AuthService {
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
 
   }
@@ -140,7 +140,7 @@ export class AuthService {
       delay(1000),
       map((response: HttpResponse<any>) => response),
       debounceTime(5000),
-      catchError(err => of([]))
+      catchError(_ => of([]))
     );
   }
   signUp(payload: UserModel): Observable<any> {
@@ -149,7 +149,7 @@ export class AuthService {
       delay(2000),
       debounceTime(5000),
       this.backoff(3, 250),
-      catchError(err => of([])));
+      catchError(_ => of([])));
   }
   getTokenOrRefreshed(): Observable<any> {
     return this.http.get<any>(`${environment.firebase.BASE_URL}
@@ -161,7 +161,7 @@ export class AuthService {
       delay(4000),
       debounceTime(5000),
       this.backoff(3, 250),
-      catchError(err => of([])));
+      catchError(_ => of([])));
   }
   getToken(): Observable<any> {
     return this.http.get<any>(`${BASE_URL}/token`).pipe(
@@ -172,7 +172,7 @@ export class AuthService {
       delay(4000),
       debounceTime(5000),
       this.backoff(3, 250),
-      catchError(err => of([])));
+      catchError(_ => of([])));
   }
   logout(token) {
     const that = this;
@@ -181,8 +181,8 @@ export class AuthService {
       this.backoff(3, 250),
       delay(1000),
       tap(_ => {
-        this.token = null;
-        this.resetLocalStorageVals();
+        that.token = null;
+        that.resetLocalStorageVals();
       }));
   }
   isLoggedIn(): boolean {
@@ -290,7 +290,7 @@ export class AuthService {
     this.calendarItems = events.result.items;
   }
   async insertEvent() {
-    const insert = await this.gapi.client.calendar.events.insert({
+     await this.gapi.client.calendar.events.insert({
       calendarId: 'primary',
       start: {
         dateTime: hoursFromNow(2),

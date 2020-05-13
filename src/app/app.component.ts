@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
         }
       });
     }
-    //  this.subscribeToNotifications();
+     this.subscribeToNotifications();
     // this.notify();
   }
   notify(){
@@ -38,7 +38,13 @@ export class AppComponent implements OnInit {
       icon: 'assets/images/ironman.png'
     }
      this._pushNotifications.create('Iron Man', options).subscribe(
-        res => console.log(res),
+        res =>{
+        if (res.event.type === 'click') {
+            // You can do anything else here
+            res.notification.close();
+        }
+        console.log(res)
+        },
         err => console.log(err)
     );
   }

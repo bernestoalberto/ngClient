@@ -38,7 +38,7 @@ import { AuthModule } from './auth/auth.module';
 import {ReportsModule} from './reports/reports.module';
 import {EventModule} from './calendar/event.module';
 import { PushNotificationsModule } from 'ng-push-ivy';
-
+import {FooterModule} from './footer/footer.module';
 import { DashBoardComponent } from './dashboard/dashboard.component';
 import { TaxComponent } from './tax/tax.component';
 import {HelpModule} from './help/help.module';
@@ -123,6 +123,7 @@ import {MessagingService} from './shared/messaging.service';
     SharedModule,
     ServicesModule,
     AuthModule,
+    FooterModule,
     ReportsModule,
     HttpClientXsrfModule,
     HttpClientModule,

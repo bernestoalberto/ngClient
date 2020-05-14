@@ -28,7 +28,7 @@ import { SubSink } from 'subsink';
 @Component({
   selector: 'app-mng-services',
   templateUrl: './mng-services.component.html',
-  styleUrls: ['./mng-services.component.css'],
+  styleUrls: ['./mng-services.component.scss'],
 })
 
 export class MngServicesComponent implements OnInit {

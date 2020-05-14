@@ -3,18 +3,22 @@
 }
 
 .demo-section {
-  border: 1px solid #bbb;
+  border: 1px solid #212121;
 }
 
 footer {
-  background-color: #ddd;
-  border-top: 1px solid #bbb;
+  background-color: #212121;
+  border-top: 1px solid #212121;
   text-align: center;
-}
 
+}
+.mdb-color {
+  background-color: #212121 !important;
+}
 #clickFooter footer:hover {
   background-color: #ccc;
   cursor: pointer;
+  height:200px ;
 }
 
 #btmFooter {

@@ -55,7 +55,6 @@
     "chart.js": "^2.5.0",
     "flatpickr": "^4.6.3",
     "flex-layout": "^1.0.1",
-    "ng-push": "^0.2.2",
     "ng-push-ivy": "^1.0.5",
     "ngx-quicklink": "^0.2.1",
     "primeng": "^9.0.6",

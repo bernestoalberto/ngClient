@@ -1,0 +1,30 @@
+header {
+  text-align: center;
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+
+.container {
+  margin-left: 50px;
+  width: 2000px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+/*# sourceMappingURL=home-page.component.css.map */

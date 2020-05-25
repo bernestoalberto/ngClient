@@ -14,10 +14,6 @@
   height: 60px;
 }
 
-.mat-card {
-  width: 1220px;
-}
-
 .content {
   margin-left: 40px;
   margin-right: 40px;
@@ -25,6 +21,6 @@
 
 .example-container {
   margin-left: 40px;
-  margin-right: 90px;
+  margin-right: 40px;
 }
-/*# sourceMappingURL=mng-services.component.css.map */
+/*# sourceMappingURL=media.component.css.map */

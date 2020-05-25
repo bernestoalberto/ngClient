@@ -25,6 +25,9 @@ export const environment = {
     scope: 'https://www.googleapis.com/auth/calendar'
   },
   googleMapsApiKey: 'AIzaSyBK_Y1fqx6FsIwIftOW9Ezt3vlaNFIL3lw',
+  chatBase: {
+    apiKey: 'bf7c3f28-538a-4d6f-ba62-7ed00eb801d9',
+  },
   firebase:  {
     apiKey: 'AIzaSyDoqRhvIvb4t6Tl6z9svVnOMG1hWKsD3TU',
     authDomain: 'adminmoftbot.firebaseapp.com',

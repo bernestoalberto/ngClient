@@ -43,6 +43,9 @@ export class ShellComponent implements OnInit, OnDestroy{
   travel(){
     this.router.navigateByUrl('/services');
   }
+  chat(){
+    this.router.navigateByUrl('/chat');
+  }
   getUser(){
     this.userSub$.sink =  this.afAuth$.authState.subscribe((user)=>{
      this.user = user;

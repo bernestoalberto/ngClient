@@ -45,6 +45,8 @@
            <mat-menu #mservices="matMenu">
             <button mat-menu-item
              [matMenuTriggerFor]="mngServices">Manage</button>
+             <button mat-menu-item
+             [matMenuTriggerFor]="chatServices">Chat</button>
           </mat-menu>
 
           <mat-menu #mngServices="matMenu">
@@ -60,16 +62,14 @@
             <button mat-menu-item>Notary Signing Agent</button>
             <button mat-menu-item>Tax Return</button>
           </mat-menu>
-           <!--
-          <mat-menu #otherServices="matMenu">
-            <button mat-menu-item>Insects</button>
-            <button mat-menu-item>Molluscs</button>
-            <button mat-menu-item>Crustaceans</button>
-            <button mat-menu-item>Corals</button>
-            <button mat-menu-item>Arachnids</button>
-            <button mat-menu-item>Velvet worms</button>
-            <button mat-menu-item>Horseshoe crabs</button>
+          <mat-menu #chatServices="matMenu">
+            <button mat-menu-item
+            (click)="chat()"
+            ><span class="material-icons">
+              voice_chat
+              </span>Chat</button>
           </mat-menu>
+          <!--
           <mat-menu #fish="matMenu">
             <button mat-menu-item>Baikal oilfish</button>
             <button mat-menu-item>Bala shark</button>

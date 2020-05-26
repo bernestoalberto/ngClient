@@ -21,6 +21,9 @@ $custom-typography: mat-typography-config(
     $font-family: 'sofia-pro'
 );
 
+ul {
+  list-style-type: none;
+}
 
 @include mat-core($custom-typography);
 

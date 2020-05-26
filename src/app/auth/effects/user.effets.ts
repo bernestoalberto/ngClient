@@ -65,16 +65,10 @@ export class UserEffects {
 
   @Effect()
   logout: Observable<Action> = this.actions$.pipe(
-    ofType(userActions.LOGOUT),
-    map((action: userActions.Logout) => action.payload),
-    switchMap(payload => {
-      return of(this.afAuth.auth.signOut());
-    }),
-    map(authData => {
-      return new userActions.NotAuthenticated();
-    }),
-    catchError(err => of(new userActions.AuthError({ error: err.message }))));
-
+    ofType(userActions.UserActionTypes.GOOGLE_LOGOUT),
+    tap(() =>  of(this.afAuth.auth.signOut()),
+    catchError(err => of(new userActions.AuthError({ error: err.message }))),
+    ))
 }
 
 

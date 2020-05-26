@@ -1,0 +1,80 @@
+.boards {
+  width: auto;
+  padding: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow-x: scroll;
+}
+
+.boards::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.boards::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+.boards::-webkit-scrollbar {
+  width: 3px;
+  background-color: #000;
+}
+
+.boards::-webkit-scrollbar-thumb {
+  background-color: #f5f5f5;
+  border: 2px solid #555555;
+}
+
+.boards .handle {
+  position: relative;
+  top: 5px;
+  left: 0;
+  cursor: move;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.2;
+  width: 350px;
+  border: 5px dashed gray;
+  margin: 0 10px;
+}
+
+.cdk-drag-animating {
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+}
+
+.boards.cdk-drop-list-dragging .cdk-drag {
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+}
+
+.board-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 5px gray dashed;
+  width: 300px;
+  padding: 32px;
+  height: 350px;
+}
+/*# sourceMappingURL=boards-list.component.css.map */

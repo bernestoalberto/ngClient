@@ -10,8 +10,7 @@ import { EventComponent } from './calendar/event.component';
 import { MapComponent } from './map/map.component';
 
 import { DashBoardComponent } from './dashboard/dashboard.component';
-
-
+import { UserProfileComponent } from './user/profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -92,11 +91,20 @@ const routes: Routes = [
     component: DashBoardComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'profile',
+    data: {
+    breadcrumb: 'Profile'
+    },
+    component: UserProfileComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-})],
+})
+],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -107,8 +107,6 @@ export class MediaComponent implements OnInit, OnDestroy {
     private upServ: UploadService
   ) {
     this.store.select('media');
-    this.showSpinner$ = this.isMediaLoaded();
-
     // cell renderer class
     this.defaultColDef = {
       resizable: true,
@@ -123,8 +121,8 @@ export class MediaComponent implements OnInit, OnDestroy {
 
  // Create the Dialogs using dialogRef
   ngOnInit() {
-    // this.showSpinner$ = this.isMediaLoaded();
 
+    this.showSpinner$ = this.isMediaLoaded();
     this.sessionId = this.route
       .queryParamMap
       .pipe(map(params => params.get('session_id') || 'None'));
@@ -139,7 +137,7 @@ export class MediaComponent implements OnInit, OnDestroy {
     this.mediaData$ = this.LoadMedia();
     this.subs.sink = this.mediaData$.subscribe((meds) => {
     // trace.incrementMetric('collectionSize', meds.length);
-    if (meds.length === 1) {
+    if (meds.length === 0) {
       this.getMedia();
     }
     });

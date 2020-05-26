@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EAAE,SAAS,EAAE,KAAK;CAAI",
+    "sources": [
+        "delete-button.component.scss"
+    ],
+    "names": [],
+    "file": "delete-button.component.css"
+}

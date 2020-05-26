@@ -1,0 +1,50 @@
+<div *ngIf="user$ | async; then authenticated else guest">
+  <!-- template will replace this div -->
+</div>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <h3>Howdy, GUEST</h3>
+  <p>Login to get started...</p>
+
+  <button (click)="auth.googleSignin()">
+    <i class="fa fa-google"></i> Connect Google
+  </button>
+
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="user$ | async as user">
+    <h3>Howdy, {{ user?.first_name }}</h3>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Profile</mat-card-title>
+        <mat-card-subtitle> UID: {{ user?.uid }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="user?.profile_path" alt="user picture">
+      <mat-card-content>
+        <p>Email: {{ user?.email }} </p>
+        <p>
+          Status: {{ user?.status }}
+        </p>
+        <div *ngFor="let item of auth.calendarItems">
+          <h3>{{ item.summary }} - {{ item.status }}</h3>
+          <p><em>Created {{ item.created }}</em></p>
+          <p>{{ item.description }}</p>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" *ngIf="user.uid" (click)="auth.getCalendar()">
+          Get Google Calendar
+        </button>
+        <button mat-raised-button color="warn" *ngIf="user.uid" (click)="auth.insertEvent()">
+          Add Event
+        </button>
+        <button mat-raised-button color="warn" *ngIf="user.uid" (click)="logoutGoogle()">Logout</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</ng-template>

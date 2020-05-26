@@ -39,7 +39,7 @@ export function userReducer(state: State = initialState, action: Action) {
     case USER_ACTION_TYPES.AUTH_ERROR:
       return { ...state, ...action.payload, loading: false };
 
-    case USER_ACTION_TYPES.LOGOUT:
+    case USER_ACTION_TYPES.GOOGLE_LOGOUT:
       return { ...state, loading: true };
 
   }

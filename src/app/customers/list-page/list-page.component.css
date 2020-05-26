@@ -1,0 +1,25 @@
+:host {
+  text-align: center;
+  padding: 24px;
+}
+
+mat-nav-list {
+  max-width: 600px;
+  background-color: #212121;
+  padding: 0;
+  margin: 0 auto;
+}
+
+mat-list-item {
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+}
+
+mat-list-item:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+/*# sourceMappingURL=list-page.component.css.map */

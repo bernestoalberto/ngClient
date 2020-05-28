@@ -120,6 +120,7 @@
     "typescript": "^3.8.3",
     "underscore": "^1.10.2",
     "wait-on": "^4.0.0",
+    "watchpack": "^1.7.2",
     "webpack-cli": "^3.3.11",
     "zone.js": "^0.10.3"
   }

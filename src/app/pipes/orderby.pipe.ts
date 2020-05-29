@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 
 
-@Pipe(username 'orderBy' })
+@Pipe({name: 'orderBy' })
 export class OrderBy implements PipeTransform {
 
   value: string[] = [];

@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 import * as _ from 'lodash';
 
-@Pipe(username 'search', pure: false })
+@Pipe({name: 'search', pure: false })
 export class Search implements PipeTransform {
   transform(items: any[], filter: any): any {
     if (!items || !filter) { return items; }

@@ -16,7 +16,7 @@ describe('AppEffects', () => {
       ]
     });
 
-    effects = TesBed.inject<AppEffects>(AppEffects);
+    effects = TestBed.inject<AppEffects>(AppEffects);
   });
 
   it('should be created', () => {

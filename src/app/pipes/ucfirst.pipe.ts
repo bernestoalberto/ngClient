@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 
-@Pipe({ name: 'ucfirst' })
+@Pipe(username 'ucfirst' })
 export class UCFirst implements PipeTransform {
   transform(param: string) {
     if (typeof param !== 'string') { return param; }

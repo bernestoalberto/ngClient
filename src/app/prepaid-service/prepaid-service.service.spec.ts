@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PrepaidServiceService } from './prepaid-service.service';
+import { PrepaidService } from './prepaid-service.service';
 
-describe('PrepaidServiceService', () => {
+describe('PrepaidService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PrepaidServiceService = TesBed.inject(PrepaidServiceService);
+    const service: PrepaidService = TestBed.inject(PrepaidService);
     expect(service).toBeTruthy();
   });
 });

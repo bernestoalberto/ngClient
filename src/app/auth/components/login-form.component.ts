@@ -81,7 +81,7 @@ export class LoginFormComponent implements OnInit {
   @Output() submitted = new EventEmitter<Authenticate>();
 
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+    username:  new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
 

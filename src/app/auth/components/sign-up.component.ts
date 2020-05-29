@@ -41,7 +41,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.store.select(fromStoreAuth.isLoading);
 
     this.signUpForm = this.fb.group({
-      username: new FormControl('', EmailValidation),
+      =username:  new FormControl('', EmailValidation),
       password: new FormControl('', PasswordValidation),
       password_check: new FormControl('', PasswordValidation)
 

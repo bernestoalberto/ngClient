@@ -2,7 +2,7 @@ import { reducer } from '../reducers/auth.reducer';
 import * as fromAuth from '../reducers/auth.reducer';
 import { AuthApiActions, AuthActions } from '../actions';
 
-import { User } from '../models';
+import { UserModel } from './../../user/user.model';
 
 describe('AuthReducer', () => {
   describe('undefined action', () => {
@@ -24,8 +24,8 @@ describe('AuthReducer', () => {
 
   describe('LOGIN_SUCCESS', () => {
     it('should add a user set loggedIn to true in auth state', () => {
-      const user = { name: 'test' } as User;
-      const createAction = AuthApiActions.loginSuccess({ user });
+      const user: UserModel = { username :  'test', first_name: 'Usero1', email:'user@powernbi.com' };
+      const createAction = AuthApiActions.loginSuccess({ user  });
 
       const result = reducer(fromAuth.initialState, createAction);
 
@@ -35,9 +35,8 @@ describe('AuthReducer', () => {
 
   describe('LOGOUT', () => {
     it('should logout a user', () => {
-      const initialState = {
-        user: { name: 'test' },
-      } as fromAuth.State;
+      const user: UserModel = { username :  'test', first_name: 'Usero1', email:'user@powernbi.com' };
+      const initialState = { user } as fromAuth.State;
       const createAction = AuthActions.logout();
 
       const result = reducer(initialState, createAction);

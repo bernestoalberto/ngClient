@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 
-import { UserEffects } from './index';
 import { UserActions } from '../actions';
+import { UserEffects } from './user.effects';
 
 describe('UserEffects', () => {
   let effects: UserEffects;
@@ -19,7 +19,7 @@ describe('UserEffects', () => {
       providers: [UserEffects],
     });
 
-    effects = TesBed.inject(UserEffects);
+    effects = TestBed.inject(UserEffects);
   });
 
   describe('idle$', () => {

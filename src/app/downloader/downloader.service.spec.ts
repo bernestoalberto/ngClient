@@ -6,7 +6,7 @@ describe('DownloaderService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DownloaderService = TesBed.inject(DownloaderService);
+    const service: DownloaderService = TestBed.inject(DownloaderService);
     expect(service).toBeTruthy();
   });
 });

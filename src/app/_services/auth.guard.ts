@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate, OnDestroy {
     this.routeEvent();
   }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(/*next: ActivatedRouteSnapshot, state: RouterStateSnapshot*/): Observable<boolean> {
     return this.store.pipe(
       select(fromAuth.getLoggedIn),
       map(authed => {

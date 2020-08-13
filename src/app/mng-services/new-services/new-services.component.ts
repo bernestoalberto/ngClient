@@ -12,7 +12,7 @@ import * as fromService from '../../mng-services/reducers/service.reducer';
   // moduleId: module.id.toString(),
   selector: 'app-new-services',
   templateUrl: './new-services.component.html',
-  styleUrls: ['./new-services.component.css'],
+  styleUrls: ['./new-services.component.scss'],
   providers : [FormBuilder]
 })
 export class NewServicesComponent implements OnInit {

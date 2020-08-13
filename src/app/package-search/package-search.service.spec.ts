@@ -6,7 +6,7 @@ describe('PackageSearchService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PackageSearchService = TesBed.inject(PackageSearchService);
+    const service: PackageSearchService = TestBed.inject(PackageSearchService);
     expect(service).toBeTruthy();
   });
 });

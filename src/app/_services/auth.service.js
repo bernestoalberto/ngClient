@@ -22,7 +22,7 @@ var AuthService = (function () {
     }
     AuthService.prototype.login = function (username, password) {
         var _this = this;
-        return this.http.post('http://208.104.17.253:6776/authenticate', { username: username, password: password })
+        return this.http.post('http://208.104.17.253:6776/authenticate', { =username:  username, password: password })
             .map(function (response) {
             // login successful if there's a jwt token in the response
             var token = response.json() && response.json().token;

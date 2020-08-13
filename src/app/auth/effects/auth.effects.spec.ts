@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Actions } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
@@ -11,7 +11,7 @@ import {
   AuthApiActions,
 } from '../actions';
 
-import { Credentials, User } from '../models';
+import { Credentials, UserModel } from '../models';
 import { AuthService } from '../services';
 import { AuthEffects } from './auth.effects';
 
@@ -44,19 +44,19 @@ describe('AuthEffects', () => {
       ],
     });
 
-    effects = TesBed.inject(AuthEffects);
-    authService = TesBed.inject(AuthService);
-    actions$ = TesBed.inject(Actions);
-    routerService = TesBed.inject(Router);
-    dialog = TesBed.inject(MatDialog);
+    effects = TestBed.inject(AuthEffects);
+    authService = TestBed.inject(AuthService);
+    actions$ = TestBed.inject(Actions);
+    routerService = TestBed.inject(Router);
+    dialog = TestBed.inject(MatDialog);
 
     spyOn(routerService, 'navigate').and.callThrough();
   });
 
   describe('login$', () => {
     it('should return an auth.loginSuccess action, with user information if login succeeds', () => {
-      const credentials: Credentials = { username: 'test', password: '' };
-      const user = { name: 'User' } as User;
+      const credentials: Credentials = { username:  'test', password: '' };
+      const user: UserModel = { username:  'User', first_name: 'user34', email: 'email@gh.com' };
       const action = LoginPageActions.login({ credentials });
       const completion = AuthApiActions.loginSuccess({ user });
 
@@ -69,7 +69,7 @@ describe('AuthEffects', () => {
     });
 
     it('should return a new auth.loginFailure if the login service throws', () => {
-      const credentials: Credentials = { username: 'someOne', password: '' };
+      const credentials: Credentials = { username:  'someOne', password: '' };
       const action = LoginPageActions.login({ credentials });
       const completion = AuthApiActions.loginFailure({
         error: 'Invalid username or password',
@@ -87,7 +87,7 @@ describe('AuthEffects', () => {
 
   describe('loginSuccess$', () => {
     it('should dispatch a RouterNavigation action', (done: any) => {
-      const user = { name: 'User' } as User;
+      const user: UserModel = {username:  'User', first_name: 'user03', email: 'user@gmail.com' };
       const action = AuthApiActions.loginSuccess({ user });
 
       actions$ = of(action);

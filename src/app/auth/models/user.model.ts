@@ -33,17 +33,17 @@ export interface FireUser {
   myCustomData?: string;
 }
 export class User {
-  username: string;
-  password: string;
+  username:  string;
+  password?: string;
   token?: string;
   firstName: string;
-  email: string;
+  email?: string;
   lastName?: string;
   profilePath?: string;
   [key: string]: any;
 }
 export interface Credentials {
-  username: string;
+  username:  string;
   password: string;
   token?: string;
 }

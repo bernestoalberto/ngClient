@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     });
     this.LoginForm = this.fb.group({
-      username: new FormControl('', EmailValidation),
+      username:  new FormControl('', EmailValidation),
       password: new FormControl('', PasswordValidation),
     });
     this.subcriptions.sink = this.store.select(fromStoreAuth.isLoading).subscribe(_ => {
@@ -145,7 +145,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     //   trace.start();
 
     const user = {
-      username: this.LoginForm.value.username,
+      username:  this.LoginForm.value.username,
       password: this.LoginForm.value.password,
       token: localStorage.getItem('token') || this.getStoredToken()
     };

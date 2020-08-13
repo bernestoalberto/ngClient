@@ -1,10 +1,10 @@
 import {
- /* createSelector,
-  createFeatureSelector,*/
+  createSelector,
+  createFeatureSelector,
   Action,
   combineReducers,
 } from '@ngrx/store';
-import * as fromRoot from './index';
+// import * as fromRoot from './index';
 import * as fromAuth from './auth.reducer';
 import * as fromLoginPage from './login-page.reducer';
 
@@ -25,16 +25,16 @@ export function reducers(state: AuthState | undefined, action: Action) {
     [fromLoginPage.loginPageFeatureKey]: fromLoginPage.reducer,
   })(state, action);
 }
-/*
+
 export const selectAuthState = createFeatureSelector<State, AuthState>(
   authFeatureKey
-);*/
-/*
+);
+
 export const selectAuthStatusState = createSelector(
   selectAuthState,
   (state: AuthState) => state.status
-);*/
-/*
+);
+
 export const selectUser = createSelector(
   selectAuthStatusState,
   fromAuth.getUser
@@ -53,4 +53,4 @@ export const selectLoginPagePending = createSelector(
   selectLoginPageState,
   fromLoginPage.getPending
 );
-*/
+

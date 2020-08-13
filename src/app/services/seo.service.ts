@@ -14,13 +14,13 @@ export class SeoService {
     this.title.setTitle(title);
     this.meta.addTags([
       // Open Graph
-      { name: 'og:url', content: `https://ng-client.fireship.io${this.router.url}` },
-      { name: 'og:title', content: title },
-      { name: 'og:description', content: description },
-      { name: 'og:image', content: image },
+      {username: 'og:url', content: `https://ng-client.fireship.io${this.router.url}` },
+      {username: 'og:title', content: title },
+      {username: 'og:description', content: description },
+      {username: 'og:image', content: image },
       // Twitter Card
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:site', content: '@fireship_dev' },
+      {username: 'twitter:card', content: 'summary' },
+      {username: 'twitter:site', content: '@fireship_dev' },
     ]);
   }
 }
